@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+}
+
+#header{
+   
+    display: flex;
+    height: 70px;
+    background-color: rgb(0, 183, 255);
+    border-bottom: 3px solid black;
+    justify-content: space-between;
+    font-family: fantasy;
+    color: rgb(17, 65, 153);
+}
+#icones_header {
+    width: 25px;
+    height: 25px;
+    
+}
+#header .logo {
+    margin-left: 50px;
+}
+#header #logo_netuno{
+    width: 65px;
+    height: 65px;
+
+}
+
+#header .paginas {
+    margin-top: 25px;
+    display: flex;
+    list-style:none;
+    width: 25%;
+    justify-content: space-between;
+    margin-right: 50px;
+}
