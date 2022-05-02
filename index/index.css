@@ -1,11 +1,10 @@
 
-
-body .banner {
+.banner {
     display: flex;
     background-size: cover;
     height: 90vh;
     flex-direction: column;
-    
+    background-image: url(../imagens/fundoMar.jpg);
     
 }
 
@@ -30,21 +29,22 @@ body .banner {
     height: 200px;
     margin: 100px 0px 0px 200px;
 }
-.banner #peca_ja{
+#peca_ja{
     height: 50px;
     width: 150px;
-    background-color: transparent;
     border-radius: 7px;
     margin: 50px 0px 0px 300px;
     font-family: fantasy;
     font-size: large;
-    border: 3px solid white
-    
+    border: 2px solid white;
+    background-color: rgb(17, 65, 153);
+
 }
 
-.banner button:hover {
+#peca_ja:hover {
     transform: scale(1.1);
     transition: all 0.5s;
-    background-color: rgb(17, 65, 153);
-    color: black;
+    font-family: fantasy;
+    font-size: large;
+    background-color: transparent;
   } 
