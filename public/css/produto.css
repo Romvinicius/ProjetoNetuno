@@ -1,0 +1,99 @@
+.banner {
+    height: 90vh;
+    display: flex;
+    background-image: url(../assets/imgs/fundoAgua.jpg);
+    background-size: cover;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.produtos_container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 50px;
+    padding: 0;
+}
+
+.banner .produto {
+    
+    background-color: black;
+    width: 17%;
+    height: 80%;
+   
+    color: white;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.banner .produto .navbar {
+    background-color: red;
+    width: 90%;
+    height: 50%;
+    margin: 5% 5% 0% 5%;
+    
+}
+
+.banner h3{
+    margin: 0;
+    display: flex;
+    margin-top: 5%;
+    align-items: center;
+}
+
+.banner .produto .navbar_baixo {
+    margin: 5% 5% 0% 5%;    
+    display: flex;
+    background-color: rgb(0, 247, 255);
+    width: 90%;
+    height: 15%;
+    margin-top: 10%;
+    justify-content: space-between;
+    align-items: center;
+    font-family: fantasy;
+    color: black;
+}
+
+li {
+    list-style: none;
+}
+
+.banner .produto .produto_titulo{
+    display: flex;
+    height: 15%;
+    background-color: violet;
+    margin-top: 10%;
+    
+}
+
+.produto_titulo h3 {
+    justify-items: center;
+    text-align: center;
+    margin: 0;
+}
+
+#add_carrinho{
+    height: 50px;
+    width: 150px;
+    border-radius: 7px;
+    margin: 0% 0% 3% 45%;
+    font-family: fantasy;
+    font-size: large;
+    border: 2px solid white;
+    background-color: rgb(17, 65, 153);
+
+}
+
+#add_carrinho:hover {
+    transform: scale(1.1);
+    transition: all 0.5s;
+    font-family: fantasy;
+    font-size: large;
+    background-color: transparent;
+  } 
+
+
+

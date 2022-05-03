@@ -11,7 +11,7 @@
     <script src="./js/funcoes.js"></script>
 
     <link rel="icon" href="./assets/icon/logo_Netuno_001.png">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/globais.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -27,7 +27,7 @@
     <header id="header">
         <div class="logo"><a href="./index.html"><img id="logo_netuno" src="./assets/icon/logo_Netuno_001.png"></a></div>
         <div class="paginas">               
-            <li>Produtos</li>
+            <a href="./produto.html"><li>Produtos</li></a>
             <li>Sobre Nós</li>
             <a class="agora" href="./login.html"><li>Login</li></a>
             <a href="./cadastro.html"><li>Cadastre-Se</li></a>
@@ -59,6 +59,7 @@
 
                     <button class="btn" onclick="entrar()">Entrar</button>
 
+                    <li>Não cadastrado ? <a href="./cadastro.html"><span>Cadastre-se</span></a> </li>
 
                 </div>
 
@@ -75,9 +76,22 @@
 
     <!--footer inicio-->
     <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por um aluno &hearts;SPTech &copy; 2022</h4>
+        <div class="footer_endereco">
+            <li><img id="icone_endereco" src="./assets/icon/icone_endereco.png">
+                Rua: Avanhandava, 194 - Vila Gilda - Santo André
+            </li>
         </div>
+        <div class="footer_rede_social">
+            <li><img src="./assets/icon/icone_intagram.png"></li>
+            <li><img src="./assets/icon/icone_face.png"></li>
+        </div>
+        <div class="footer_contato">
+            <li><img src="./assets/icon/icone_whats.png"><span>(11) 99665-7516</span></li>
+            
+            <li><img src="./assets/icon/icone_email.png"><span>distribuidora_netuno@gmail.com</span></li>
+            
+        </div>
+
     </div>
     <!--footer fim-->
 
