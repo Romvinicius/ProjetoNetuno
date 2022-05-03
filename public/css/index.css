@@ -1,0 +1,111 @@
+
+.banner {
+    display: flex;
+    background-size: cover;
+    height: 90vh;
+    flex-direction: column;
+    background-image: url(../assets/imgs/fundoAgua.jpg);
+    
+}
+
+.banner .container #frase_maior {
+    font-family: fantasy;
+    color: rgb(17, 65, 153);
+    
+    
+}
+
+.banner .container h3 {
+   margin: 0;
+}
+
+.banner .container h6 {
+    margin: 0;
+    margin-top: 10px;
+    
+}
+
+.banner .container #frase_menor {
+    font-family: fantasy;
+    color: rgb(17, 65, 153);
+    
+    
+}
+
+.banner .container{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 200px;
+    margin: 100px 0px 0px 200px;
+}
+
+#peca_ja{
+    height: 50px;
+    width: 150px;
+    border-radius: 7px;
+    margin: 50px 0px 0px 300px;
+    font-family: fantasy;
+    font-size: large;
+    border: 2px solid white;
+    background-color: rgb(17, 65, 153);
+
+}
+
+#peca_ja:hover {
+    transform: scale(1.1);
+    transition: all 0.5s;
+    font-family: fantasy;
+    font-size: large;
+    background-color: transparent;
+  } 
+
+
+
+a {
+    text-decoration: none;
+    color: rgb(17, 65, 153);
+    
+}
+
+
+.agora {
+    text-decoration: dotted
+}
+
+
+  .social {
+    background-color: #e5e5e5;
+    display: flex;
+  }
+  
+  .social .container{
+    justify-content: center;
+  }
+  
+  .box img {
+    width: 170px;
+  }
+  
+  .social .container .boxes {
+    display: flex;
+  }
+  
+  .social p {
+    text-align: center;
+  }
+  
+  .box {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  .box {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
