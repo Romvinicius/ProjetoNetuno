@@ -64,6 +64,11 @@
     
   }
 
+  .formulario a{
+    text-decoration: none;
+    color: rgb(9, 31, 71);
+  }
+
 
   .alerta_erro{
     display: flex;

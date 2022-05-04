@@ -35,7 +35,8 @@
 span h1 {
     font-family: fantasy;
     text-decoration: underline;
-    margin-left: 45%;
+    font-size: 40px;
+    margin-left: 10%;
     margin-top: 50px;
 }
 

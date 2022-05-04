@@ -18,10 +18,7 @@
 }
 
 .banner .produto {
-    align-items: center;
-    background-color: #e5e5e560;
-    border-radius: 5px;
-    border: 1px solid rgb(9, 31, 71);
+    align-items: center;  
     width: 17%;
     height: 80%;
    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -53,6 +50,8 @@
     display: flex;
     margin-top: 5%;
     align-items: center;
+    font-family: fantasy;
+    color: black;
 }
 
 .banner .produto .navbar_baixo {
@@ -92,26 +91,10 @@ li {
     margin: 0;
 }
 
-#add_carrinho{
-    height: 50px;
-    width: 150px;
-    border-radius: 7px;
-    margin: 0% 0% 3% 45%;
-    font-family: fantasy;
-    font-size: large;
-    border: 2px solid rgb(9, 31, 71);
-    background-color: rgba(17, 121, 153, 0.445);
-    
-
+.img_embreve {
+    width: 160px;
+    height: 160px;
 }
-
-#add_carrinho:hover {
-    transform: scale(1.1);
-    transition: all 0.5s;
-    font-family: fantasy;
-    font-size: large;
-    background-color: transparent;
-  } 
 
 
 
