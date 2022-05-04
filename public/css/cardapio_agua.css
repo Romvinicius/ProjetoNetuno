@@ -31,7 +31,7 @@
 
 #agua {
    width: 105px;
-    height: 160px;
+    height: 180px;
 }
 
 
@@ -88,6 +88,7 @@ li {
 .produto_titulo h3 {
     justify-items: center;
     text-align: center;
+    font-size: 25px;
     margin: 0;
 }
 
