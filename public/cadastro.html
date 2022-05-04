@@ -15,7 +15,7 @@
     <link rel="icon" href="./assets/icon/logo_Netuno_001.png">
     <link rel="stylesheet" href="./css/cadastro.css">
     <link rel="stylesheet" href="./css/globais.css">
-    <link rel="stylesheet" href="./css/index.css">
+    
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -26,16 +26,23 @@
 
     <!--header inicio-->
     <header id="header">
-        <div class="logo"><a href="./index.html"><img id="logo_netuno" src="./assets/icon/logo_Netuno_001.png"></a></div>
-        <div class="paginas">               
-            <a href="./produto.html"><li>Produtos</li></a>
-            <li>Sobre Nós</li>
-            <a href="./login.html"><li>Login</li></a>
-            <a class="agora" href="./cadastro.html"><li>Cadastre-Se</li></a>
-        </div>  
+        <div class="logo"><a href="./index.html"><img id="logo_netuno" src="./assets/icon/logo_Netuno_001.png"></a>
+        </div>
+        <div class="paginas">
+            <a href="./produto.html">
+                <li>Produtos</li>
+            </a>
+            <a href="./sobrenos.html"><li>Sobre Nós</li></a>
+            <a href="./login.html">
+                <li>Login</li>
+            </a>
+            <a class="agora" href="./cadastro.html">
+                <li>Cadastre-Se</li>
+            </a>
+        </div>
         <div class="icones">
             <li><img id="icones_header" src="./assets/icon/sino.png"></li>
-            <li><img id="icones_header" src="./assets/icon/carrinho.png"></li>    
+            <li><img id="icones_header" src="./assets/icon/carrinho.png"></li>
         </div>
     </header>
     <!--header fim-->
@@ -49,27 +56,48 @@
         </div>
         <div class="container tamanho-conteudo">
             <div class="card medio">
-                <h2>Bem-vindo!</h2>
+                <h2>Junte-se a nós!</h2>
                 <div class="formulario">
 
                     <!--
                          Para inserir mais um campo, copie uma das inputs abaixo.
                          Assim que inserir vá para o script abaixo.
                      -->
+                    <div class="formulario_campos">
+                        <span class="tipo_campo">Nome:</span>
+                        <input id="nome_input" type="text" placeholder="Seu nome">
 
-                    <span class="tipo_campo">Nome:</span>
-                    <input id="nome_input" type="text" placeholder="Seu nome">
+                        <span class="tipo_campo">E-mail:</span>
+                        <input id="email_input" type="text" placeholder="meuemail@provedor.com">
 
-                    <span class="tipo_campo">E-mail:</span>
-                    <input id="email_input" type="text" placeholder="meuemail@provedor.com">
+                        <span class="tipo_campo">Senha:</span>
+                        <input id="senha_input" type="password" placeholder="******">
 
-                    <span class="tipo_campo">Senha:</span>
-                    <input id="senha_input" type="password" placeholder="******">
+                        <span class="tipo_campo">Confirmação da Senha:</span>
+                        <input id="confirmacao_senha_input" type="password" placeholder="******">
+                    </div>
 
-                    <span class="tipo_campo">Confirmação da Senha:</span>
-                    <input id="confirmacao_senha_input" type="password" placeholder="******">
+                    <div class="formulario_campos">
+                        <span class="tipo_campo">CEP:</span>
+                        <input id="senha_input" type="text" placeholder="xxxxxxxx">
 
-                    <button class="btn" onclick="cadastrar()">Cadastrar</button>
+                        <span class="tipo_campo">Rua:</span>
+                        <input id="confirmacao_senha_input" type="text" placeholder="Nome de sua rua">
+
+                        <span class="tipo_campo">Bairro:</span>
+                        <input id="senha_input" type="text" placeholder="Seu bairro">
+
+                        <span class="tipo_campo">Número:</span>
+                        <input id="confirmacao_senha_input" type="text" placeholder=" Número de sua rêsidencia">
+                    </div>
+
+                    <div class="formulario_campos">
+                        <span class="tipo_campo">Complemento:</span>
+                        <input id="senha_input" type="text" placeholder="Complemento">
+                    
+
+                        <button class="btn" onclick="cadastrar()">Cadastrar</button>
+                    </div>
 
                 </div>
                 <div id="div_aguardar" class="loading-div">
@@ -96,9 +124,9 @@
         </div>
         <div class="footer_contato">
             <li><img src="./assets/icon/icone_whats.png"><span>(11) 99665-7516</span></li>
-            
+
             <li><img src="./assets/icon/icone_email.png"><span>distribuidora_netuno@gmail.com</span></li>
-            
+
         </div>
 
     </div>
@@ -122,7 +150,7 @@
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagem_erro.innerHTML = "(Todos os campos são obrigatórios)";
 
             finalizarAguardar();
             return false;
@@ -156,7 +184,7 @@
                 setTimeout(() => {
                     window.location = "login.html";
                 }, "2000")
-                
+
                 limparFormulario();
                 finalizarAguardar();
             } else {

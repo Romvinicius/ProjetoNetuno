@@ -1,22 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
 
 .banner {
     display: flex;
     background-size: cover;
     height: 90vh;
     flex-direction: column;
-    background-image: url(../assets/imgs/fundoAgua.jpg);
+    background-image: url(../assets/imgs/jong-marshes-79mNMAvSORg-unsplash.jpg);
     
 }
 
+.banner .titulo {
+  margin-left: 500px;
+}
+
 .banner .container #frase_maior {
-    font-family: fantasy;
-    color: rgb(17, 65, 153);
+    font-family: fantasy; 
+    color: rgb(9, 31, 71);
     
     
 }
 
 .banner .container h3 {
    margin: 0;
+
+   
 }
 
 .banner .container h6 {
@@ -27,7 +34,7 @@
 
 .banner .container #frase_menor {
     font-family: fantasy;
-    color: rgb(17, 65, 153);
+    color: rgb(9, 31, 71);
     
     
 }
@@ -47,8 +54,8 @@
     margin: 50px 0px 0px 300px;
     font-family: fantasy;
     font-size: large;
-    border: 2px solid white;
-    background-color: rgb(17, 65, 153);
+    border: 2px solid rgb(9, 31, 71);
+    background-color: rgba(17, 121, 153, 0.445);
 
 }
 

@@ -1,16 +1,33 @@
 
+.banner {
+  display: flex;
+  background-size: cover;
+  height: 90vh;
+  flex-direction: column;
+  background-image: url(../assets/imgs/jong-marshes-79mNMAvSORg-unsplash.jpg);
+  
+}
+
+.banner .container{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 200px;
+  margin: 100px 0px 0px 200px;
+}
 
 .banner .container .card {
-    background-color: #e5e5e5c7;
+    background-color: #e5e5e580;
+    border: 1px solid rgb(9, 31, 71);
     height: fit-content;
-    width: 75%;
+    width: 700px;
     display: flex;
     flex-direction: column;
     color: rgb(17, 65, 153);
     font-family: fantasy;
     align-items: center;
     border-radius: 4px;
-    margin-left: 50%;
+    margin-left: 27%;
    
   }
   
@@ -48,7 +65,7 @@
     color: black;
     width: 230px;
     position: fixed;
-    border-radius: 4px;
+    border-radius: 3px;
     border: #e6005a 3px solid;
     padding: 10px;
     margin-right: 10%;
@@ -59,17 +76,25 @@
     font-size: 20px;
   }
   
-  .formulario .tipo_campo {
-    font-size: 20px;
-    font-weight: 600 !important;
-  }
-  
   .formulario {
     display: flex;
+    flex-direction: row;
+    padding: 20px;
+  }
+  
+  .formulario .tipo_campo {
+    font-size: 15px;
+    
+  }
+  
+  .formulario .formulario_campos{
+    display: flex;
     flex-direction: column;
+    padding-left: 20px;
   }
   
   input {
+    height: 15px;
     margin-bottom: 10px;
     border: 2px solid #32b9cd;
     padding: 10px;
@@ -87,7 +112,7 @@
     background-color: rgb(17, 65, 153);
     width: 120px;
     align-self: center;
-    margin-top: 5px;
+    margin-top: 50px;
   }
   
   .loading-div {

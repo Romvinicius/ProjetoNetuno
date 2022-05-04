@@ -1,0 +1,44 @@
+.banner {
+    display: flex;
+    background-size: cover;
+    height: 90vh;
+    flex-direction: column;
+    background-image: url(../assets/imgs/jong-marshes-79mNMAvSORg-unsplash.jpg);
+    
+    
+    
+  }
+
+  .banner .container {
+    
+        display: flex;
+        flex-direction: column;
+        width: 65%;
+        height: 60%;
+        margin: 100px 0px 0px 200px;
+        background-color: #e5e5e580;
+        border-radius: 5px;
+        border: 3px solid rgb(9, 31, 71);
+        align-items: center;
+        
+
+  }
+
+  h1 {
+      margin: 0;
+  }
+
+  .container .titulo {
+      color: rgb(9, 31, 71);
+      font-family: fantasy;
+      border-bottom: 2px solid rgb(9, 31, 71);
+      margin-top: 15px;
+      
+  }
+
+  .container .texto {
+    margin-top: 70px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 85%;
+    height: 72%;
+  }
