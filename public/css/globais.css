@@ -6,7 +6,7 @@ body {
     
 }
 
-a {
+#header a {
     text-decoration: none;
     color: rgb(17, 65, 153);
     
