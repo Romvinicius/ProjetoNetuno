@@ -35,7 +35,7 @@
 
 
 
-.titulo {
+.relatorio .titulo {
     display: flex;
     height: 10%;
     width: 100%;
@@ -43,7 +43,7 @@
     justify-content: center;
 }
 
-.titulo h1 {
+.relatorio .titulo h1 {
     color: rgb(17, 65, 153);
     font-family: fantasy;
     align-items: center;
@@ -116,8 +116,102 @@
     flex-direction: column;
     height: 100%;
     width: 30%;
-    background-color: blueviolet;
+    font-family: fantasy;
+    background-color: rgba(219, 207, 207, 0.712);
+    border-bottom: 1px solid rgb(9, 31, 71);
+    border-right: 1px solid rgb(9, 31, 71);
+    border-top: 1px solid rgb(9, 31, 71);
+    border-radius: 0px 15px 15px 0px;
 }
 
+.parte_cima {
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgb(9, 31, 71);
+}
+
+.parte_cima h1 {
+    margin: 0;
+}
+
+.qtd_valor{
+    height: 21.25%;
+    
+
+}
+
+.qtd_valor .coluna{
+    height: 50%;
+    width: 100%;
+    column-gap: 180px;
+}
+
+.avista{
+    height: 42.50%;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgb(9, 31, 71);
+    border-top: 1px solid rgb(9, 31, 71);
+}
+
+.avista .coluna h4 {
+    font-size: 20px;
+    margin: 0;
+    height: 30px;
+}
+
+.avista .coluna span {
+    justify-content: center;
+    align-self: center;
+    font-size: 40px;
+}
+
+.avista .coluna1 {
+    display: flex;
+    height: 50%;
+    width: 100%;
+    align-items: center;
+    font-size: 30px;
+    margin-left: 10px;
+}
+.avista .coluna2 {
+    display: flex;
+    height: 50%;
+    width: 100%;
+   justify-content: center;
+   align-items: center;
+   font-size: 40px;
+}
+
+.finalizar{
+    height: 21.25%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn_finalizar{
+    height: 50px;
+    width: 150px;
+    border-radius: 7px;
+    align-items: center;
+    font-family: fantasy;
+    font-size: large;
+    border: 2px solid rgb(9, 31, 71);
+    background-color: rgba(17, 121, 153, 0.445);
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.btn_finalizar:hover {
+    transform: scale(1.1);
+    transition: all 0.5s;
+    font-family: fantasy;
+    font-size: large;
+    background-color: transparent;
+  } 
 
 
