@@ -6,12 +6,11 @@
     height: 90vh;
     flex-direction: column;
     background-image: url(../assets/imgs/jong-marshes-79mNMAvSORg-unsplash.jpg);
-    
+    justify-content: center;
+    align-items: center;
 }
 
-.banner .titulo {
-  margin-left: 500px;
-}
+
 
 .banner .container #frase_maior {
     font-family: fantasy; 
@@ -20,9 +19,9 @@
     
 }
 
-.banner .container h3 {
+.banner .container h1 {
    margin: 0;
-
+  font-size: 40px;
    
 }
 
@@ -41,22 +40,24 @@
 
 .banner .container{
     display: flex;
+    width: 1000px;
+    height: 300px;
     flex-direction: column;
-    width: 500px;
-    height: 200px;
-    margin: 100px 0px 0px 200px;
+    justify-content: center;
+    align-items: center;
 }
 
 #peca_ja{
     height: 50px;
     width: 150px;
     border-radius: 7px;
-    margin: 50px 0px 0px 300px;
+    align-items: center;
     font-family: fantasy;
     font-size: large;
     border: 2px solid rgb(9, 31, 71);
     background-color: rgba(17, 121, 153, 0.445);
-
+    margin-top: 30px;
+  cursor: pointer;
 }
 
 #peca_ja:hover {

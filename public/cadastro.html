@@ -15,7 +15,7 @@
     <link rel="icon" href="./assets/icon/logo_Netuno_001.png">
     <link rel="stylesheet" href="./css/cadastro.css">
     <link rel="stylesheet" href="./css/globais.css">
-    
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -29,10 +29,12 @@
         <div class="logo"><a href="./index.html"><img id="logo_netuno" src="./assets/icon/logo_Netuno_001.png"></a>
         </div>
         <div class="paginas">
-            <a href="./produto.html">
+            <a href="./cardapio.html">
                 <li>Produtos</li>
             </a>
-            <a href="./sobrenos.html"><li>Sobre Nós</li></a>
+            <a href="./sobrenos.html">
+                <li>Sobre Nós</li>
+            </a>
             <a href="./login.html">
                 <li>Login</li>
             </a>
@@ -54,49 +56,51 @@
                 <span id="mensagem_erro"></span>
             </div>
         </div>
-        <div class="container tamanho-conteudo">
+        <div class="container">
             <div class="card medio">
                 <h2>Junte-se a nós!</h2>
                 <div class="formulario">
-
+                    
                     <!--
                          Para inserir mais um campo, copie uma das inputs abaixo.
                          Assim que inserir vá para o script abaixo.
                      -->
-                    <div class="formulario_campos">
-                        <span class="tipo_campo">Nome:</span>
-                        <input id="nome_input" type="text" placeholder="Seu nome">
+                        <div class="formulario_campos">
+                            <form method="get" action=".">
+                            <span class="tipo_campo">Nome:</span>
+                            <input id="nome_input" type="text" placeholder="Seu nome">
 
-                        <span class="tipo_campo">E-mail:</span>
-                        <input id="email_input" type="text" placeholder="meuemail@provedor.com">
+                            <span class="tipo_campo">Email:</span>
+                            <input id="email_input" type="text" placeholder="meuemail@provedor.com">
 
-                        <span class="tipo_campo">Senha:</span>
-                        <input id="senha_input" type="password" placeholder="******">
+                            <span class="tipo_campo">Senha:</span>
+                            <input id="senha_input" type="password" placeholder="******">
 
-                        <span class="tipo_campo">Confirmação da Senha:</span>
-                        <input id="confirmacao_senha_input" type="password" placeholder="******">
-                    </div>
+                            <span class="tipo_campo">Confirmação da Senha:</span>
+                            <input id="confirmacao_senha_input" type="password" placeholder="******">
+                        </div>
+                    <form method="get" action=".">
+                        <div class="formulario_campos">
+                            <span class="tipo_campo">CEP:</span>
+                            <input onblur="pesquisacep(this.value);" id="cep" type="text" placeholder="xxxxxxxx">
 
-                    <div class="formulario_campos">
-                        <span class="tipo_campo">CEP:</span>
-                        <input id="senha_input" type="text" placeholder="xxxxxxxx">
+                            <span class="tipo_campo">Rua:</span>
+                            <input id="rua" type="text" placeholder="Nome de sua rua">
 
-                        <span class="tipo_campo">Rua:</span>
-                        <input id="confirmacao_senha_input" type="text" placeholder="Nome de sua rua">
+                            <span class="tipo_campo">Bairro:</span>
+                            <input id="bairro" type="text" placeholder="Seu bairro">
 
-                        <span class="tipo_campo">Bairro:</span>
-                        <input id="senha_input" type="text" placeholder="Seu bairro">
+                            <span class="tipo_campo">Número:</span>
+                            <input id="confirmacao_senha_input" type="text" placeholder=" Número de sua rêsidencia">
+                        </div>
 
-                        <span class="tipo_campo">Número:</span>
-                        <input id="confirmacao_senha_input" type="text" placeholder=" Número de sua rêsidencia">
-                    </div>
+                        <div class="formulario_campos">
+                            <span class="tipo_campo">Complemento:</span>
+                            <input id="senha_input" type="text" placeholder="Complemento">
 
-                    <div class="formulario_campos">
-                        <span class="tipo_campo">Complemento:</span>
-                        <input id="senha_input" type="text" placeholder="Complemento">
-                    
 
                         <button class="btn" onclick="cadastrar()">Cadastrar</button>
+                    </form>
                     </div>
 
                 </div>
@@ -201,5 +205,67 @@
     function sumirMensagem() {
         cardErro.style.display = "none"
     }
+
+
+
+    function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value=("");
+            document.getElementById('bairro').value=("");
+                  
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.
+            document.getElementById('rua').value=(conteudo.logradouro);
+            document.getElementById('bairro').value=(conteudo.bairro);       
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+        
+    function pesquisacep(valor) {
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('rua').value="...";
+                document.getElementById('bairro').value="...";
+
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    };
 
 </script>

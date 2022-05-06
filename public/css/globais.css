@@ -68,7 +68,11 @@ body {
     margin-right: 50px;
 }
 
-
+.agora {
+    font-weight: 800;
+    color: rgb(17, 65, 153);
+    
+  }
 
 .footer {
     font-family: fantasy;

@@ -1,0 +1,123 @@
+.banner {
+    display: flex;
+    background-size: cover;
+    height: 90vh;
+    background-image: url(../assets/imgs/jong-marshes-79mNMAvSORg-unsplash.jpg);
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    width: 90%;
+    height: 90%;
+    
+}
+
+.relatorio {
+    display: flex;
+    width: 70%;
+    height: 100%;
+    flex-direction: column;
+    background-color: rgba(219, 207, 207, 0.712);
+    justify-content: space-around;
+    border: 1px solid rgb(9, 31, 71);
+    border-radius: 15px 0px 0px 15px;
+}
+
+.coluna {
+    display: flex;
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+.titulo {
+    display: flex;
+    height: 10%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo h1 {
+    color: rgb(17, 65, 153);
+    font-family: fantasy;
+    align-items: center;
+    margin: 0;
+
+}
+
+.div_qtd_valor {
+    display: flex;
+    font-family: fantasy;
+    height: 5%;
+    justify-content: center;
+    border-bottom: 1px solid rgb(9, 31, 71);
+}
+
+
+
+.div_agua {
+    
+    display: flex;
+    font-family: fantasy;
+    height: 21.25%;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(9, 31, 71);
+}
+
+
+
+.div_carvao8kg {
+    display: flex;
+    font-family: fantasy;
+    height: 21.25%;
+    border-bottom: 1px solid rgb(9, 31, 71);
+    align-items: center;
+    
+    justify-content: space-between;
+
+}
+
+.div_carvao4kg {
+    display: flex;
+    font-family: fantasy;
+    height: 21.25%;
+    border-bottom: 1px solid rgb(9, 31, 71);
+    align-items: center;
+    
+    justify-content: space-between;
+}
+
+.div_carvao2kg {
+    display: flex;
+    font-family: fantasy;
+    height: 21.25%;
+
+    align-items: center;
+   
+    justify-content: space-between;
+}
+
+.relatorio img {
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    
+}
+
+.resumo {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 30%;
+    background-color: blueviolet;
+}
+
+
+

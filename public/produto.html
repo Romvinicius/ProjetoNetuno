@@ -18,14 +18,14 @@
      <header id="header">
         <div class="logo"><a href="./index.html"><img id="logo_netuno" src="./assets/icon/logo_Netuno_001.png"></a></div>
         <div class="paginas">               
-            <a href="./produto.html"><li>Produtos</li></a>
+            <a class="agora" href="./cardapio.html"><li>Produtos</li></a>
             <a href="./sobrenos.html"><li>Sobre Nós</li></a>
             <a href="./login.html"><li>Login</li></a>
-            <a class="agora" href="./cadastro.html"><li>Cadastre-Se</li></a>
+            <a href="./cadastro.html"><li>Cadastre-Se</li></a>
         </div>  
         <div class="icones">
             <li><img id="icones_header" src="./assets/icon/sino.png"></li>
-            <li><img id="icones_header" src="./assets/icon/carrinho.png"></li>    
+            <li><a href="./carrinho.html"><img id="icones_header" src="./assets/icon/carrinho.png"></li></a>
         </div>
     </header>
     <!--header fim-->
@@ -38,51 +38,51 @@
                 </div>
                 <div class="produto_titulo"><h3>Galão de agua - 20L (Bioleve)</h3></div>
                 <div class="navbar_baixo">
-                    <li><img src="./assets/icon/icone_retira.png"></li>
-                    <li> <span id="qtd_agua">0</span></li>
-                    <li><img src="./assets/icon/icone_adiciona.png" alt=""></li>
+                    <li><img onclick="menos_qtd_agua()" src="./assets/icon/icone_retira.png"></li>
+                    <li> <span id="span_qtd_agua">0</span></li>
+                    <li><img onclick="mais_qtd_agua()"  src="./assets/icon/icone_adiciona.png" alt=""></li>
                 </div>
             </div>
             <div class="produto">
                 <div class="navbar">
                     
                 </div>
-                <div class="produto_titulo"><h3>Galão de agua - 20L (Bioleve)</h3></div>
+                <div class="produto_titulo"><h3>Carvão Vegetal - 8Kg (Brazuca)</h3></div>
                 <div class="navbar_baixo">
-                    <li><img src="./assets/icon/icone_retira.png"></li>
-                    <li> <span id="qtd_agua">0</span></li>
-                    <li><img src="./assets/icon/icone_adiciona.png" alt=""></li>
+                    <li><img onclick="menos_qtd_carvao8kg()"  src="./assets/icon/icone_retira.png"></li>
+                    <li> <span id="span_qtd_carvao8kg">0</span></li>
+                    <li><img onclick="mais_qtd_carvao8kg()" src="./assets/icon/icone_adiciona.png" alt=""></li>
                 </div>
             </div>
             <div class="produto">
                 <div class="navbar">
                    
                 </div>
-                <div class="produto_titulo"><h3>Galão de agua - 20L (Bioleve)</h3></div>
+                <div class="produto_titulo"><h3>Carvão Vegetal - 4Kg (Brazuca)</h3></div>
                 <div class="navbar_baixo">
-                    <li><img src="./assets/icon/icone_retira.png"></li>
-                    <li> <span id="qtd_agua">0</span></li>
-                    <li><img src="./assets/icon/icone_adiciona.png" alt=""></li>
+                    <li><img onclick="menos_qtd_carvao4kg()" src="./assets/icon/icone_retira.png"></li>
+                    <li> <span id="span_qtd_carvao4kg">0</span></li>
+                    <li><img onclick="mais_qtd_carvao4kg()" src="./assets/icon/icone_adiciona.png" alt=""></li>
                 </div>
             </div>
             <div class="produto">
                 <div class="navbar">
                     
                 </div>
-                <div class="produto_titulo"><h3>Galão de agua - 20L (Bioleve)</h3></div>
+                <div class="produto_titulo"><h3>Carvão Vegetal - 2Kg (Brazuca)</h3></div>
                 <div class="navbar_baixo">
-                    <li><img src="./assets/icon/icone_retira.png"></li>
-                    <li> <span id="qtd_agua">0</span></li>
-                    <li><img src="./assets/icon/icone_adiciona.png" alt=""></li>
+                    <li><img class="icones" onclick="menos_qtd_carvao2kg()" src="./assets/icon/icone_retira.png"></li>
+                    <li> <span id="span_qtd_carvao2kg">0</span></li>
+                    <li><img onclick="mais_qtd_carvao2kg()" src="./assets/icon/icone_adiciona.png" alt=""></li>
                 </div>
             </div>
             
         </ul>    
         
         <div class="btn_add_carrinho">
-            <button id="add_carrinho">
+            <a href="./carrinho.html"><button onclick="adicionar()" id="add_carrinho">
                 Adionar carrinho
-            </button>
+            </button></a>
         </div>
     </div>
 
@@ -112,3 +112,81 @@
 
 </body>
 </html>
+
+<script>
+var qtd_agua = 0
+var qtd_carvao8kg = 0
+var qtd_carvao4kg = 0
+var qtd_carvao2kg = 0
+var total_produtos = qtd_agua + qtd_carvao8kg + qtd_carvao4kg + qtd_carvao2kg
+
+function menos_qtd_agua() {
+  
+    if (qtd_agua > 0) {
+        qtd_agua --
+        span_qtd_agua.innerHTML = qtd_agua
+    }
+}
+
+function mais_qtd_agua() {
+
+    qtd_agua ++
+    span_qtd_agua.innerHTML = qtd_agua
+      
+}
+
+function menos_qtd_carvao8kg() {
+    
+    if (qtd_carvao8kg > 0) {
+
+        qtd_carvao8kg --
+        span_qtd_carvao8kg.innerHTML = qtd_carvao8kg
+    }
+
+}
+
+function mais_qtd_carvao8kg() {
+    qtd_carvao8kg ++
+
+    span_qtd_carvao8kg.innerHTML = qtd_carvao8kg
+      
+}
+
+function menos_qtd_carvao4kg() {
+
+    if (qtd_carvao4kg > 0) {
+
+        qtd_carvao4kg --
+        span_qtd_carvao4kg.innerHTML = qtd_carvao4kg
+    }
+
+}
+
+function mais_qtd_carvao4kg() {
+
+    qtd_carvao4kg ++
+    span_qtd_carvao4kg.innerHTML = qtd_carvao4kg
+}
+
+function menos_qtd_carvao2kg() {
+
+if (qtd_carvao2kg > 0) {
+
+    qtd_carvao2kg --
+    span_qtd_carvao2kg.innerHTML = qtd_carvao2kg
+}
+
+}
+
+function mais_qtd_carvao2kg() {
+
+qtd_carvao2kg ++
+span_qtd_carvao2kg.innerHTML = qtd_carvao2kg
+}
+
+function adicionar(){
+
+
+}
+
+</script>

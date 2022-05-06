@@ -12,13 +12,14 @@
 .banner .container{
   display: flex;
   flex-direction: column;
-  width: 500px;
-  height: 200px;
-  margin: 100px 0px 0px 200px;
+  width: 100%;
+  height: 90vh;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner .container .card {
-    background-color: #e5e5e580;
+    background-color: rgba(255, 255, 255, 0.712);
     height: fit-content;
     border: 1px solid rgb(9, 31, 71);
     width: 400px;
@@ -28,7 +29,7 @@
     font-family: fantasy;
     align-items: center;
     border-radius: 4px;
-    margin-left: 65%;
+    
 
   }
 
@@ -104,10 +105,11 @@
   
   input {
     margin-bottom: 10px;
-    border: 2px solid #32b9cd;
     padding: 10px;
     text-align: center;
-    border-radius: 10px;
+    border: none;
+    border-bottom: 2px solid rgb(9, 31, 71);
+    background-color: transparent;
   }
   
   .btn {

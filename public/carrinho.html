@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <title>Netuno|Carrinho</title>
+    
+        <script src="./js/funcoes.js"></script>
+    
+        <link rel="icon" href="./assets/icon/logo_Netuno_001.png">
+        
+        <link rel="stylesheet" href="./css/globais.css">
+        <link rel="stylesheet" href="./css/carrinho.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <!-- <link
+            href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"> -->
+    </head>
+<body>
+
+    <header id="header">
+        <div class="logo"><a href="./index.html"><img id="logo_netuno" src="./assets/icon/logo_Netuno_001.png"></a></div>
+        <div class="paginas">               
+            <a href="./cardapio.html"><li>Produtos</li></a>
+            <a href="./sobrenos.html"><li>Sobre Nós</li></a>
+            <a href="./login.html"><li>Login</li></a>
+            <a href="./cadastro.html"><li>Cadastre-Se</li></a>
+        </div>  
+        <div class="icones">
+            <li><img id="icones_header" src="./assets/icon/sino.png"></li>
+            <li><a href="./carrinho.html"><img id="icones_header" src="./assets/icon/carrinho.png"></li></a>    
+        </div>
+    </header>
+
+    <div class="banner">
+
+        <div class="container">
+            <div class="relatorio">
+               <div class="titulo"><h1>Relatorio</h1></div> 
+                <div class="div_qtd_valor">
+                    <div class="coluna"><div></div></div>
+                    <div class="coluna"><div></div></div>
+                    <div class="coluna"> <h3>Qtd.</h3></div>
+                    <div class="coluna"><h3>Valor</h3></div>
+                </div>
+                <div class="div_agua">
+                   
+                    <div class="coluna"><img src="./assets/imgs/galao20l.jpg"></div> 
+                    <div class="coluna"><span>Agua - 20L - (Bioleve)</span></div> 
+                    <div class="coluna"><span id="qtd_agua">0</span></div> 
+                    <div class="coluna"><span id="valor_agua">0</span></div> 
+                    
+                </div>
+                <div class="div_carvao8kg">
+                    
+                    <div class="coluna"><img src="./assets/imgs/carvoes.jpg"></div>
+                    <div class="coluna"><span>Carvao Vegetal - 8Kg - (Brazica)</span></div>
+                    <div class="coluna"><span id="qtd_carvao8kg">0</span></div>
+                    <div class="coluna"><span id="valor_carvao8kg">0</span></div>
+                    
+                </div>
+                <div class="div_carvao4kg">
+                    <div class="coluna"><img src="./assets/imgs/carvoes.jpg"></div>
+                    <div class="coluna"><span>Carvao Vegetal - 4Kg - (Brazica)</span></div>
+                    <div class="coluna"><span id="qtd_carvao4kg">0</span></div>
+                    <div class="coluna"><span id="valor_carvao4kg">0</span></div>
+                </div>
+                <div class="div_carvao2kg">
+                    <div class="coluna"><img src="./assets/imgs/carvoes.jpg"></div>
+                    <div class="coluna"><span>Carvao Vegetal - 2Kg - (Brazica)</span></div>
+                    <div class="coluna"><span id="qtd_carvao2kg">0</span></div>
+                   <div class="coluna"><span id="valor_carvao2kg">0</span></div>
+                </div>
+
+            </div>
+            <div class="resumo">
+                <div class="parte_cima">
+                    <h1>Resumo</h1>
+                    <span>Valor Total:</span>
+                    <span>Qtd produtos:</span>
+                </div>
+                <div class="avista">
+                    <h4>Valor no Pix</h4>
+                    <span>0</span>
+                </div>
+                <div class="finalizar">
+                    <button onclick="finalizar()">Finalizar</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--footer inicio-->
+    <div class="footer">
+        <div class="footer_endereco">
+            <li><img id="icone_endereco" src="./assets/icon/icone_endereco.png">
+                Rua: Avanhandava, 194 - Vila Gilda - Santo André
+            </li>
+        </div>
+        <div class="footer_rede_social">
+            <li><img src="./assets/icon/icone_intagram.png"></li>
+            <li><img src="./assets/icon/icone_face.png"></li>
+        </div>
+        <div class="footer_contato">
+            <li><img src="./assets/icon/icone_whats.png"><span>(11) 99665-7516</span></li>
+            
+            <li><img src="./assets/icon/icone_email.png"><span>distribuidora_netuno@gmail.com</span></li>
+            
+        </div>
+
+    </div>
+    <!--footer fim-->
+
+</body>
+</html>
+
+
+<script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value=("");
+            document.getElementById('bairro').value=("");
+            document.getElementById('cidade').value=("");
+            document.getElementById('uf').value=("");
+            document.getElementById('ibge').value=("");
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.
+            document.getElementById('rua').value=(conteudo.logradouro);
+            document.getElementById('bairro').value=(conteudo.bairro);
+            document.getElementById('cidade').value=(conteudo.localidade);
+            document.getElementById('uf').value=(conteudo.uf);
+            document.getElementById('ibge').value=(conteudo.ibge);
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+        
+    function pesquisacep(valor) {
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('rua').value="...";
+                document.getElementById('bairro').value="...";
+                document.getElementById('cidade').value="...";
+                document.getElementById('uf').value="...";
+                document.getElementById('ibge').value="...";
+
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    };
+
+</script>
