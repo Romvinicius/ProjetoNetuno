@@ -62,13 +62,13 @@ function entrar(req, res) {
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nome = req.body.nomeServer;
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
-    var cep = req.body.cepServer;
-    var bairro = req.body.bairroServer;
-    var rua = req.body.ruaServer;
-    var numero = req.body.numeroServer;
+    var nome = req.body.nome;
+    var email = req.body.email;
+    var senha = req.body.senha;
+    var cep = req.body.cep;
+    var bairro = req.body.bairro;
+    var rua = req.body.rua;
+    var numero = req.body.numero;
 
     // Faça as validações dos valores
     if (nome == undefined) {
