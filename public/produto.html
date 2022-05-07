@@ -9,8 +9,8 @@
     <link rel="icon" href="./assets/icon/logo_Netuno_001.png">
     <link rel="stylesheet" href="./css/produto.css">
     <link rel="stylesheet" href="./css/globais.css">
-   <script type="text/javascript" src=".//js/produto.js"></script>
-   <script type="text/javascript" src=".//js/carrinho.js"></script>
+    <script src="./js/produto.js"></script>
+   
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -40,9 +40,9 @@
                 </div>
                 <div class="produto_titulo"><h3>Galão de agua - 20L (Bioleve)</h3></div>
                 <div class="navbar_baixo">
-                    <li><img onclick="menos_qtd_agua()" src="./assets/icon/icone_retira.png"></li>
+                    <li onclick="menos_qtd_agua()"><img  src="./assets/icon/icone_retira.png"></li>
                     <li> <span id="span_qtd_agua">0</span></li>
-                    <li><img onclick="mais_qtd_agua()"  src="./assets/icon/icone_adiciona.png" alt=""></li>
+                    <li onclick="mais_qtd_agua()"><img   src="./assets/icon/icone_adiciona.png" alt=""></li>
                 </div>
             </div>
             <div class="produto">
@@ -114,4 +114,6 @@
 
 </body>
 </html>
+
+
 
