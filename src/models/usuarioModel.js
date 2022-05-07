@@ -28,6 +28,7 @@ function cadastrar(nome, email, senha, cep, bairro, rua, numero) {
         INSERT INTO usuario (nome, email, senha, cep, bairro, rua, numero) VALUES ('${nome}', '${email}', '${senha}' , '${cep}' 
         , '${bairro}' , '${rua}' , '${numero}');
     `;
+    console.log("usuario inserindo")
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }

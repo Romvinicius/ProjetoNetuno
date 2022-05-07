@@ -1,12 +1,4 @@
-
-qtd_agua
-
-function adicionar(){
-    span_qtd_agua.innerHTML = qtd_agua
-
-}
+import {qtd_agua , qtd_carvao8kg , qtd_carvao4kg , qtd_carvao2kg , total_produtos } from "./produto"
 
 
-function finalizar() {
-    span_qtd_agua.innerHTML = `${qtd_agua}`
-}
+
