@@ -1,12 +1,11 @@
    
-var qtd_agua = 0
+var  qtd_agua = 0
 var  qtd_carvao8kg = 0
 var  qtd_carvao4kg = 0
 var  qtd_carvao2kg = 0
 var  total_produtos = qtd_agua + qtd_carvao8kg + qtd_carvao4kg + qtd_carvao2kg
 
 
-sessionStorage.qtd_aguaOF = qtd_agua.value;
       
     function menos_qtd_agua() {
     
@@ -71,4 +70,12 @@ sessionStorage.qtd_aguaOF = qtd_agua.value;
     qtd_carvao2kg ++
     span_qtd_carvao2kg.innerHTML = qtd_carvao2kg
     }
+
+    sessionStorage.setItem("Quantidade_agua", qtd_agua);
+
+    const esse = sessionStorage.getItem("Quantidade_agua");
+
+    export default esse;
+
+   
 

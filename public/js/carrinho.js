@@ -1,4 +1,7 @@
-import {qtd_agua , qtd_carvao8kg , qtd_carvao4kg , qtd_carvao2kg , total_produtos } from "./produto"
 
 
+import esse from "./produto"
 
+window.onload = function() {
+	span_qtd_agua.innerHTML = esse
+}

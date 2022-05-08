@@ -13,6 +13,8 @@ numero int,
 complemento varchar(45)
 );
 
+select * from usuario;
+
 create table Venda (
 idVenda int auto_increment,
 total varchar(45),
@@ -28,10 +30,26 @@ descricao varchar(45),
 valorProduto varchar(45)
 );
 
+insert into Produto values 
+(null , 'Galão 20L' , 'Bioleve' , '13,00'),
+(null , 'Carvão 8Kg' , 'Brazica' , '28,40'),
+(null , 'Carvão 4Kg' , 'Brazica' , '18,60'),
+(null , 'Carvão 2Kg' , 'Brazica' , '9,80');
+
+select * from Produto;
+
 create table Estoque (
 fkProduto int primary key auto_increment,
 qtdEstoque int
 );
+
+insert into Estoque values 
+(1 , '100'),
+(2 , '100'),
+(3 , '100'),
+(4 , '100');
+
+select * from Estoque;
 
 create table Carrinho (
 fkVenda int, foreign key (fkVenda) references Venda (idVenda),
@@ -42,6 +60,6 @@ qtdProduto varchar(45),
 primary key (fkVenda, fkUsuario, fkProduto)
 );
 
-select * from usuario;
+
 
 
