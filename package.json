@@ -1,5 +1,5 @@
 {
-  "name": "projeto-acquatec",
+  "name": "Projeto-Netuno",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "dev": "nodemon --exec node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Feito pelos desenvolvedores @ Bandtec Digital School",
+  "author": "Feito por um aluno Sptech",
   "license": "MIT",
   
   "dependencies": {
@@ -21,3 +21,5 @@
     "path": "^0.12.7"
   }
 }
+
+

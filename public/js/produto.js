@@ -1,4 +1,4 @@
-   
+  
 var  qtd_agua = 0
 var  qtd_carvao8kg = 0
 var  qtd_carvao4kg = 0
@@ -75,7 +75,6 @@ var  total_produtos = qtd_agua + qtd_carvao8kg + qtd_carvao4kg + qtd_carvao2kg
 
     const esse = sessionStorage.getItem("Quantidade_agua");
 
-    export default esse;
-
+   export default oi = console.log("foi pau no cu")
    
 

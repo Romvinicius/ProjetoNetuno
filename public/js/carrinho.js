@@ -1,7 +1,9 @@
+import oi from "./produto.js"
 
-
-import esse from "./produto"
-
-window.onload = function() {
-	span_qtd_agua.innerHTML = esse
+function esse(){
+	span_qtd_agua.innerHTML = oi
 }
+
+window.onload = esse;
+
+
