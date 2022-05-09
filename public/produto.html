@@ -9,7 +9,7 @@
     <link rel="icon" href="./assets/icon/logo_Netuno_001.png">
     <link rel="stylesheet" href="./css/produto.css">
     <link rel="stylesheet" href="./css/globais.css">
-    <script src="./js/produto.js"></script>
+    <script src="js/produto.js"></script>
    
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -42,7 +42,7 @@
                 <div class="navbar_baixo">
                     <li onclick="menos_qtd_agua()"><img  src="./assets/icon/icone_retira.png"></li>
                     <li> <span id="span_qtd_agua">0</span></li>
-                    <li onclick="mais_qtd_agua()"><img   src="./assets/icon/icone_adiciona.png" alt=""></li>
+                    <li onclick="mais_qtd_agua()" id="maisQtdAgua"><img   src="./assets/icon/icone_adiciona.png" alt=""></li>
                 </div>
             </div>
             <div class="produto">
@@ -82,9 +82,9 @@
         </ul>    
         
         <div class="btn_add_carrinho">
-            <a href="./carrinho.html"><button onclick="adicionar()" id="add_carrinho">
+            <button onclick="adicionar()" id="add_carrinho">
                 Adionar carrinho
-            </button></a>
+            </button>
         </div>
     </div>
 

@@ -1,9 +1,10 @@
-import oi from "./produto.js"
 
-function esse(){
-	span_qtd_agua.innerHTML = oi
+function aqui(){
+	const esse = sessionStorage.getItem("Quantidade_agua");
+	span_qtd_agua.innerHTML =  esse
+	
 }
 
-window.onload = esse;
+window.onload = aqui;
 
 
