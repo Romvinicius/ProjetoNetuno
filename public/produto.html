@@ -22,8 +22,7 @@
         <div class="paginas">               
             <a class="agora" href="./cardapio.html"><li>Produtos</li></a>
             <a href="./sobrenos.html"><li>Sobre Nós</li></a>
-            <a href="./login.html"><li>Login</li></a>
-            <a href="./cadastro.html"><li>Cadastre-Se</li></a>
+            
         </div>  
         <div class="icones">
             <li><img id="icones_header" src="./assets/icon/sino.png"></li>
@@ -39,6 +38,7 @@
                     <img id="agua" src="./assets/imgs/bioleve.png" alt="">
                 </div>
                 <div class="produto_titulo"><h3>Galão de agua - 20L (Bioleve)</h3></div>
+                <li id="span_acabou_agua" class="acabou_agua" style="display: none;"><span>Produto sem estoque</span></li>
                 <div class="navbar_baixo">
                     <li onclick="menos_qtd_agua()"><img  src="./assets/icon/icone_retira.png"></li>
                     <li> <span id="span_qtd_agua">0</span></li>
@@ -50,6 +50,7 @@
                     
                 </div>
                 <div class="produto_titulo"><h3>Carvão Vegetal - 8Kg (Brazuca)</h3></div>
+                <li id="span_acabou_cv8kg" class="acabou_cv8kg" style="display: none;"><span>Produto sem estoque</span></li>
                 <div class="navbar_baixo">
                     <li><img onclick="menos_qtd_carvao8kg()"  src="./assets/icon/icone_retira.png"></li>
                     <li><form action="carrinho.html" method="post"><span id="span_qtd_carvao8kg">0</span></form></li>
@@ -61,6 +62,7 @@
                    
                 </div>
                 <div class="produto_titulo"><h3>Carvão Vegetal - 4Kg (Brazuca)</h3></div>
+                <li id="span_acabou_cv4kg" class="acabou_cv4kg" style="display: none;"><span>Produto sem estoque</span></li>
                 <div class="navbar_baixo">
                     <li><img onclick="menos_qtd_carvao4kg()" src="./assets/icon/icone_retira.png"></li>
                     <li> <span id="span_qtd_carvao4kg">0</span></li>
@@ -72,6 +74,7 @@
                     
                 </div>
                 <div class="produto_titulo"><h3>Carvão Vegetal - 2Kg (Brazuca)</h3></div>
+                <li id="span_acabou_cv2kg" class="acabou_cv2kg" style="display: none;"><span>Produto sem estoque</span></li>
                 <div class="navbar_baixo">
                     <li><img class="icones" onclick="menos_qtd_carvao2kg()" src="./assets/icon/icone_retira.png"></li>
                     <li> <span id="span_qtd_carvao2kg">0</span></li>

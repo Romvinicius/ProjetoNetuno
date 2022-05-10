@@ -108,8 +108,14 @@
     padding: 10px;
     text-align: center;
     border: none;
-    border-bottom: 2px solid rgb(9, 31, 71);
+    border-bottom: 2px solid rgb(11, 82, 214);
     background-color: transparent;
+    outline: 0;
+    transition: 400ms;
+  }
+  input:focus{
+    border-bottom: 2px solid rgb(9, 31, 71);
+
   }
   
   .btn {

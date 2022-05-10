@@ -52,6 +52,26 @@ li img {
     
 }
 
+.acabou_agua {
+
+color: red;
+}
+
+.acabou_cv8kg {
+    
+    color: red;
+}
+
+.acabou_cv4kg {
+
+    color: red;
+}
+
+.acabou_cv2kg {
+    
+    color: red;
+}
+
 .banner h3{
     margin: 0;
     display: flex;

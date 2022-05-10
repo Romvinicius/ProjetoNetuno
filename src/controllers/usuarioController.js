@@ -24,6 +24,23 @@ function listar(req, res) {
         );
 }
 
+function listar_Estoque(req, res) {
+    usuarioModel.listar_Estoque()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 function entrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
@@ -106,9 +123,49 @@ function cadastrar(req, res) {
     }
 }
 
+function atualizacao(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var EstoqueAgua = req.body.qtdEstoqueAguaServer;
+    var EstoqueCv8kg = req.body.qtdEstoqueCv8kgServer;
+    var EstoqueCv4kg = req.body.qtdEstoqueCv4kgServer;
+    var EstoqueCv2kg = req.body.qtdEstoqueCv2kgServer;
+    
+
+    // Faça as validações dos valores
+    if (EstoqueAgua == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (EstoqueCv8kg == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    }else if (EstoqueCv4kg == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    }else if (EstoqueCv2kg == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else {
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.atualizacao(EstoqueAgua,EstoqueCv8kg, EstoqueCv4kg, EstoqueCv2kg)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar a atualização! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
+    listar_Estoque,
+    atualizacao
 }

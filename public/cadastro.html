@@ -164,9 +164,8 @@
             bairroVar == "" || ruaVar == "" || numeroVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Todos os campos são obrigatórios)";
-
-            finalizarAguardar();
-            return false;
+            alert("foi")
+          return true;
         }
         else {
             setInterval(sumirMensagem, 5000)
@@ -205,16 +204,13 @@
                 }, "2000")
 
                 limparFormulario();
-                finalizarAguardar();
+                
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
+        })
 
-        return false;
+        
     }
 
     function sumirMensagem() {
