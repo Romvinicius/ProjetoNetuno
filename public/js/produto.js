@@ -3,7 +3,7 @@ var qtd_agua = 0
 var qtd_carvao8kg = 0
 var qtd_carvao4kg = 0
 var qtd_carvao2kg = 0
-var total_produtos = qtd_agua + qtd_carvao8kg + qtd_carvao4kg + qtd_carvao2kg
+
 
 
 
@@ -72,5 +72,9 @@ function mais_qtd_carvao2kg() {
 
 function adicionar() {
     sessionStorage.setItem("Quantidade_agua", qtd_agua); 
+    sessionStorage.setItem("Quantidade_cv8kg", qtd_carvao8kg); 
+    sessionStorage.setItem("Quantidade_cv4kg", qtd_carvao4kg); 
+    sessionStorage.setItem("Quantidade_cv2kg", qtd_carvao2kg); 
+    sessionStorage.setItem("Quantidade_total", qtd_agua + qtd_carvao8kg + qtd_carvao4kg + qtd_carvao2kg); 
     location.assign('carrinho.html')
 }
