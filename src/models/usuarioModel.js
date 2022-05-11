@@ -43,19 +43,20 @@ function cadastrar(nome, email, senha, cep, bairro, rua, numero) {
 }
 
 function atualizacao(EstoqueAgua,EstoqueCv8kg, EstoqueCv4kg, EstoqueCv2kg) {
+   
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", EstoqueAgua,EstoqueCv8kg, EstoqueCv4kg, EstoqueCv2kg);
     console.log("Entrando na atualização");
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
-    var instrucao = `
+    var ximbica = `
     UPDATE Estoque SET qtdEstoque = '${EstoqueAgua}' WHERE fkProduto = 1; 
     UPDATE Estoque SET qtdEstoque = '${EstoqueCv8kg}' WHERE fkProduto = 2;
     UPDATE Estoque SET qtdEstoque = '${EstoqueCv4kg}' WHERE fkProduto = 3;
     UPDATE Estoque SET qtdEstoque = '${EstoqueCv2kg}' WHERE fkProduto = 4;
     `;
     console.log("update acontecendo")
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
+    console.log("Executando a instrução SQL: \n" + ximbica);
+    return database.executar(ximbica);
 }
 
 module.exports = {

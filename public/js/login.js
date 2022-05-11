@@ -10,7 +10,7 @@ function entrar() {
         method: "POST",
         body: formulario
     }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!")
+        console.log("ESTOU NO THEN DO entrar()(login)!")
 
         if (resposta.ok) {
             console.log(resposta);

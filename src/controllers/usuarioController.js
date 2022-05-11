@@ -129,7 +129,7 @@ function atualizacao(req, res) {
     var EstoqueCv8kg = req.body.qtdEstoqueCv8kgServer;
     var EstoqueCv4kg = req.body.qtdEstoqueCv4kgServer;
     var EstoqueCv2kg = req.body.qtdEstoqueCv2kgServer;
-    
+    console.log(EstoqueAgua,EstoqueCv8kg,EstoqueCv4kg,EstoqueCv2kg)
 
     // Faça as validações dos valores
     if (EstoqueAgua == undefined) {

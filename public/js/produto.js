@@ -105,4 +105,6 @@ function adicionar() {
     sessionStorage.setItem("Quantidade_cv2kg", qtd_carvao2kg); 
     sessionStorage.setItem("Quantidade_total", qtd_agua + qtd_carvao8kg + qtd_carvao4kg + qtd_carvao2kg); 
     location.assign('carrinho.html')
+
+    
 }

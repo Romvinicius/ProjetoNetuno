@@ -31,6 +31,48 @@ function aqui(){
 		valor_pix.innerHTML = `R$ ${valor_total.toFixed(2)}`
 	}
 
+	fetch("/usuarios/listar_Estoque", {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		
+	}).then(function (resposta) {
+		console.log("ESTOU NO THEN DO entrar()!")
+
+		if (resposta.ok) {
+			console.log(resposta);
+
+			resposta.json().then(json => {
+				console.log(json);
+				console.log(JSON.stringify(json));
+
+				var fkProdutos = [];
+				var qtdEstoques = [];
+
+				for(var i = 0; i < json.length; i++) {
+					fkProdutos.push(json[i].fkProduto)
+					qtdEstoques.push(json[i].qtdEstoque)
+				}
+				
+				sessionStorage.FK_PRODUTOS = fkProdutos;
+				sessionStorage.QTD_ESTOQUE = qtdEstoques;
+			});
+
+		} else {
+
+			console.log("Houve um erro ao tentar realizar o login!");
+
+			resposta.text().then(texto => {
+				console.error(texto);
+			
+			});
+		}
+
+	}).catch(function (erro) {
+		console.log(erro);
+	})
+
 }
 
 window.onload = aqui;
