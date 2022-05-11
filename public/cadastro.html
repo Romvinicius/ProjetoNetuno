@@ -60,13 +60,14 @@
             <div class="card medio">
                 <h2>Junte-se a nós!</h2>
                 <div class="formulario">
-                    
+
                     <!--
                          Para inserir mais um campo, copie uma das inputs abaixo.
                          Assim que inserir vá para o script abaixo.
                      -->
+                    <div id="esseaqui" method="get" action=".">
                         <div class="formulario_campos">
-                            <form method="get" action=".">
+
                             <span class="tipo_campo">Nome:</span>
                             <input id="nome_input" type="text" placeholder="Seu nome">
 
@@ -79,7 +80,7 @@
                             <span class="tipo_campo">Confirmação da Senha:</span>
                             <input id="confirmacao_senha_input" type="password" placeholder="******">
                         </div>
-                    <form method="get" action=".">
+
                         <div class="formulario_campos">
                             <span class="tipo_campo">CEP:</span>
                             <input onblur="pesquisacep(this.value);" id="cep" type="text" placeholder="xxxxxxxx">
@@ -100,8 +101,9 @@
                             <input id="complemento" type="text" placeholder="Complemento">
 
 
-                        <button class="btn" onclick="cadastrar()">Cadastrar</button>
-                    </form>
+                            <button class="btn" onclick="cadastrar()">Cadastrar</button>
+
+                        </div>
                     </div>
 
                 </div>
@@ -144,7 +146,6 @@
 
 <script>
     function cadastrar() {
-        aguardar();
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -162,14 +163,10 @@
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || cepVar == "" ||
             bairroVar == "" || ruaVar == "" || numeroVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Todos os campos são obrigatórios)";
-            alert("foi")
-          return true;
+            alert("Todos os campos são obrigatorios")
+
         }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
+
 
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
@@ -203,34 +200,29 @@
                     window.location = "./login.html";
                 }, "2000")
 
-                limparFormulario();
-                
+
+
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         })
 
-        
-    }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
     }
 
 
 
     function limpa_formulário_cep() {
-            //Limpa valores do formulário de cep.
-            document.getElementById('rua').value=("");
-            document.getElementById('bairro').value=("");
-                  
+        //Limpa valores do formulário de cep.
+        document.getElementById('rua').value = ("");
+        document.getElementById('bairro').value = ("");
     }
 
     function meu_callback(conteudo) {
         if (!("erro" in conteudo)) {
             //Atualiza os campos com os valores.
-            document.getElementById('rua').value=(conteudo.logradouro);
-            document.getElementById('bairro').value=(conteudo.bairro);       
+            document.getElementById('rua').value = (conteudo.logradouro);
+            document.getElementById('bairro').value = (conteudo.bairro);
         } //end if.
         else {
             //CEP não Encontrado.
@@ -238,7 +230,7 @@
             alert("CEP não encontrado.");
         }
     }
-        
+
     function pesquisacep(valor) {
 
         //Nova variável "cep" somente com dígitos.
@@ -251,17 +243,18 @@
             var validacep = /^[0-9]{8}$/;
 
             //Valida o formato do CEP.
-            if(validacep.test(cep)) {
+            if (validacep.test(cep)) {
 
                 //Preenche os campos com "..." enquanto consulta webservice.
-                document.getElementById('rua').value="...";
-                document.getElementById('bairro').value="...";
+                document.getElementById('rua').value = "...";
+                document.getElementById('bairro').value = "...";
+
 
                 //Cria um elemento javascript.
                 var script = document.createElement('script');
 
                 //Sincroniza com o callback.
-                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+                script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
 
                 //Insere script no documento e carrega o conteúdo.
                 document.body.appendChild(script);
@@ -278,5 +271,8 @@
             limpa_formulário_cep();
         }
     };
+
+
+
 
 </script>
