@@ -1,0 +1,7 @@
+.banner {
+    display: flex;
+    background-size: cover;
+    flex-direction: column;
+    background-image: url(../assets/imgs/jong-marshes-79mNMAvSORg-unsplash.jpg);
+    height: 110vh;
+  }

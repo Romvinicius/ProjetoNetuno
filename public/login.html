@@ -119,6 +119,12 @@
             setInterval(sumirMensagem, 5000)
         }
 
+        if (emailVar == "admin" && senhaVar == "adminNetuno") {
+            setTimeout(function () {
+                        window.location = "./admin.html";
+                    }, 1000);
+        }
+
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
 

@@ -145,6 +145,10 @@
 </html>
 
 <script>
+function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
     function cadastrar() {
 
         //Recupere o valor da nova input pelo nome do id
@@ -157,15 +161,29 @@
         var ruaVar = rua.value;
         var numeroVar = numero.value;
         var complementoVar = complemento.value;
-
-
         var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || cepVar == "" ||
             bairroVar == "" || ruaVar == "" || numeroVar == "") {
-            alert("Todos os campos são obrigatorios")
+                cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Todos os campos devem ser obrigatórios!.";
+            setInterval(sumirMensagem, 3000)
 
+        } else if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
+            setInterval(sumirMensagem, 3000)
+            
+            
+        } else if (senhaVar != confirmacaoSenhaVar) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "As senhas inseridas devem ser iguais para prosseguir!";
+            setInterval(sumirMensagem, 3000)
+             
         }
+
+        
+        
 
 
         // Enviando o valor da nova input
