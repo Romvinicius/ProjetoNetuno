@@ -1,7 +1,61 @@
+
 .banner {
     display: flex;
     background-size: cover;
     flex-direction: column;
     background-image: url(../assets/imgs/jong-marshes-79mNMAvSORg-unsplash.jpg);
-    height: 110vh;
+    
   }
+  
+  .banner .container{
+    display: flex;
+    width: 100%;
+    height: 90vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .banner .container .grafico1 {
+    height: fit-content;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+
+#myChart{
+    background-color: aliceblue;
+}
+
+.selecao{
+    display: flex;
+    border-radius: 15px;
+    width: 80%;
+    height: 13%;
+    background-color: rgba(255, 255, 255, 0.712);
+    border: 1px solid rgb(9, 31, 71);
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.select{
+    display: flex;
+    background-color: black;
+    width: 20%;
+    height: 100%;
+    justify-content: center;
+}
+
+select {
+    cursor: pointer;
+    height: 30px;
+    width: 100px;
+    border-radius: 7px;
+    font-family: fantasy;
+    border: 2px solid rgb(9, 31, 71);
+    background-color: rgba(17, 121, 153, 0.445);
+    margin-top: 30px;
+}
