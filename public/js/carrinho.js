@@ -1,4 +1,4 @@
-	const qtd_agua = Number(sessionStorage.getItem("Quantidade_agua"));
+	const qtd_ag = Number(sessionStorage.getItem("Quantidade_agua"));
 	const qtd_cv8kg = Number(sessionStorage.getItem("Quantidade_cv8kg"));
 	const qtd_cv4kg = Number(sessionStorage.getItem("Quantidade_cv4kg"));
 	const qtd_cv2kg = Number(sessionStorage.getItem("Quantidade_cv2kg"));
@@ -38,7 +38,7 @@ function aqui(){
 		},
 		
 	}).then(function (resposta) {
-		console.log("ESTOU NO THEN DO entrar()!")
+		console.log("ESTOU NO THEN DO listar_Estoque()!")
 
 		if (resposta.ok) {
 			console.log(resposta);
@@ -86,7 +86,7 @@ function finalizar(){
 		},
 		
 	}).then(function (resposta) {
-		console.log("ESTOU NO THEN DO entrar()!")
+		console.log("ESTOU NO THEN DO listar_Estoque()!")
 
 		if (resposta.ok) {
 			console.log(resposta);
@@ -121,15 +121,12 @@ function finalizar(){
 		console.log(erro);
 	})
 
-	var qtdEstoqueAgua = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[0]) - qtd_agua
+	var qtdEstoqueAgua = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[0]) - qtd_ag
 	var qtdEstoqueCv8kg = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[1]) - qtd_cv8kg
 	var qtdEstoqueCv4kg = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[2]) - qtd_cv4kg
 	var qtdEstoqueCv2kg = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[3]) - qtd_cv2kg
 
-	sessionStorage.setItem("Qtd_Estoque_Agua", qtdEstoqueAgua);
-	sessionStorage.setItem("Qtd_Estoque_Cv8kg", qtdEstoqueCv8kg);
-	sessionStorage.setItem("Qtd_Estoque_Cv4kg", qtdEstoqueCv4kg);
-	sessionStorage.setItem("Qtd_Estoque_Cv2kg", qtdEstoqueCv2kg);
+
 
 	
 

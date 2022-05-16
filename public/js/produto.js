@@ -1,34 +1,98 @@
+window.onload = Estoque;
 
-const acabou_agua = sessionStorage.getItem("Qtd_Estoque_Agua")
-const acabou_cv8kg = sessionStorage.getItem("Qtd_Estoque_Cv8kg")
-const acabou_cv4kg = sessionStorage.getItem("Qtd_Estoque_Cv4kg")
-const acabou_cv2kg = sessionStorage.getItem("Qtd_Estoque_Cv2kg")
+function verificarEstoque(){
+
+    
+}
 
 function Estoque(){
+
+    fetch("/usuarios/listar_Estoque", {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		
+	}).then(function (resposta) {
+		console.log("ESTOU NO THEN DO listar_Estoque()!")
+
+		if (resposta.ok) {
+			console.log(resposta);
+
+			resposta.json().then(json => {
+				console.log(json);
+				console.log(JSON.stringify(json));
+
+				var fkProdutos = [];
+				var qtdEstoques = [];
+
+				for(var i = 0; i < json.length; i++) {
+					fkProdutos.push(json[i].fkProduto)
+					qtdEstoques.push(json[i].qtdEstoque)
+				}
+
+
+				
+				sessionStorage.FK_PRODUTOS = fkProdutos;
+				sessionStorage.QTD_ESTOQUE = qtdEstoques;
+                
+			});
+
+		} else {
+
+			console.log("Houve um erro ao tentar realizar o login!");
+
+			resposta.text().then(texto => {
+				console.error(texto);
+			
+			});
+		}
+
+	}).catch(function (erro) {
+		console.log(erro);
+	})
+
+	var qtdEstoqueAguaProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[0])
+	var qtdEstoqueCv8kgProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[1])
+	var qtdEstoqueCv4kgProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[2]) 
+	var qtdEstoqueCv2kgProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[3]) 
+
+    sessionStorage.setItem("Qtd_Estoque_AguaProduto", qtdEstoqueAguaProduto);
+	sessionStorage.setItem("Qtd_Estoque_Cv8kgProduto", qtdEstoqueCv8kgProduto);
+	sessionStorage.setItem("Qtd_Estoque_Cv4kgProduto", qtdEstoqueCv4kgProduto);
+	sessionStorage.setItem("Qtd_Estoque_Cv2kgProduto", qtdEstoqueCv2kgProduto);
+    console.log(qtdEstoqueAguaProduto)
   
-  if (acabou_agua <= 0) {
+  if (qtdEstoqueAguaProduto <= 0) {
     span_acabou_agua.style.display = "block";
     maisQtdAgua.onclick = ""
   } 
 
-  if (acabou_cv8kg <= 0) {
+  if (qtdEstoqueCv8kgProduto <= 0) {
     span_acabou_cv8kg.style.display = "block";
     maisQtdCv8kg.onclick = ""
   } 
 
-  if (acabou_cv4kg <= 0) {
+  if (qtdEstoqueCv4kgProduto <= 0) {
     span_acabou_cv4kg.style.display = "block";
     maisQtdCv4kg.onclick = ""
   } 
 
-  if (acabou_cv2kg <= 0) {
+  if (qtdEstoqueCv2kgProduto <= 0) {
     span_acabou_cv2kg.style.display = "block"
     maisQtdCv2kg.onclick = ""
   } 
 
+  console.log(acabou_agua)
+
 }
 
-window.onload = Estoque;
+
+const acabou_agua = sessionStorage.getItem("Qtd_Estoque_AguaProduto")
+const acabou_cv8kg = sessionStorage.getItem("Qtd_Estoque_Cv8kgProduto")
+const acabou_cv4kg = sessionStorage.getItem("Qtd_Estoque_Cv4kgProduto")
+const acabou_cv2kg = sessionStorage.getItem("Qtd_Estoque_Cv2kgProduto")
+
 
 
 var qtd_agua = 0
@@ -56,9 +120,9 @@ function menos_qtd_agua() {
 function mais_qtd_agua() {
     esse = Number(span_qtd_agua.innerHTML)
 
-    if (esse >= acabou_agua) {
+    if (esse >=  acabou_agua) {
         span_acabou_agua.style.display = "block";
-        span_acabou_agua.innerHTML = `Temos apenas ${acabou_agua} produtos`
+        span_acabou_agua.innerHTML = `Temos apenas ${ acabou_agua} produtos`
         
     }  else {
         span_acabou_agua.style.display = "none";

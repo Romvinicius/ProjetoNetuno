@@ -23,7 +23,7 @@ var mySqlConfig = {
     user: "root",
     port:  3306,
     database: "ProjetoNetuno",
-    password: "Vinicius&gabi28",
+    password: "picapau28",
     multipleStatements: true
 };
 
