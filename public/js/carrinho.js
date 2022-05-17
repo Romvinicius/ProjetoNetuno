@@ -6,13 +6,13 @@
 
 function aqui(){
 	
-	span_qtd_agua.innerHTML =  qtd_agua;
+	span_qtd_agua.innerHTML =  qtd_ag;
 	span_qtd_carvao8kg.innerHTML = qtd_cv8kg;
 	span_qtd_carvao4kg.innerHTML = qtd_cv4kg;
 	span_qtd_carvao2kg.innerHTML = qtd_cv2kg;
 	qtd_total_produtos.innerHTML = qtd_total;
 
-	var valorAgua = qtd_agua * 13;
+	var valorAgua = qtd_ag * 13;
 	var valorCarvao8kg = qtd_cv8kg * 28.40;
 	var valorCarvao4kg = qtd_cv4kg * 18.60;
 	var valorCarvao2kg = qtd_cv2kg * 9.80;

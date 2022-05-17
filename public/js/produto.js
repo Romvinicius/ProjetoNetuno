@@ -1,9 +1,7 @@
-window.onload = Estoque;
-
-function verificarEstoque(){
-
-    
-}
+var acabou_agua;
+var acabou_cv8kg;
+var acabou_cv4kg;
+var acabou_cv2kg;
 
 function Estoque(){
 
@@ -34,7 +32,46 @@ function Estoque(){
 
 				
 				sessionStorage.FK_PRODUTOS = fkProdutos;
-				sessionStorage.QTD_ESTOQUE = qtdEstoques;
+				sessionStorage.QTD_ESTOQUE = qtdEstoques;       
+
+                
+
+                var qtdEstoqueAguaProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[0])
+                var qtdEstoqueCv8kgProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[1])
+                var qtdEstoqueCv4kgProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[2]) 
+                var qtdEstoqueCv2kgProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[3]) 
+
+                sessionStorage.setItem("Qtd_Estoque_AguaProduto", qtdEstoqueAguaProduto);
+                sessionStorage.setItem("Qtd_Estoque_Cv8kgProduto", qtdEstoqueCv8kgProduto);
+                sessionStorage.setItem("Qtd_Estoque_Cv4kgProduto", qtdEstoqueCv4kgProduto);
+                sessionStorage.setItem("Qtd_Estoque_Cv2kgProduto", qtdEstoqueCv2kgProduto);
+
+                acabou_agua = sessionStorage.getItem("Qtd_Estoque_AguaProduto")
+                acabou_cv8kg = sessionStorage.getItem("Qtd_Estoque_Cv8kgProduto")
+                acabou_cv4kg = sessionStorage.getItem("Qtd_Estoque_Cv4kgProduto")
+                acabou_cv2kg = sessionStorage.getItem("Qtd_Estoque_Cv2kgProduto")
+
+                console.log(qtdEstoqueAguaProduto,qtdEstoqueCv8kgProduto)
+
+                if (qtdEstoqueAguaProduto <= 0) {
+                    span_acabou_agua.style.display = "block";
+                    maisQtdAgua.onclick = ""
+                  } 
+                
+                  if (qtdEstoqueCv8kgProduto <= 0) {
+                    span_acabou_cv8kg.style.display = "block";
+                    maisQtdCv8kg.onclick = ""
+                  } 
+                
+                  if (qtdEstoqueCv4kgProduto <= 0) {
+                    span_acabou_cv4kg.style.display = "block";
+                    maisQtdCv4kg.onclick = ""
+                  } 
+                
+                  if (qtdEstoqueCv2kgProduto <= 0) {
+                    span_acabou_cv2kg.style.display = "block"
+                    maisQtdCv2kg.onclick = ""
+                  } 
                 
 			});
 
@@ -52,46 +89,13 @@ function Estoque(){
 		console.log(erro);
 	})
 
-	var qtdEstoqueAguaProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[0])
-	var qtdEstoqueCv8kgProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[1])
-	var qtdEstoqueCv4kgProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[2]) 
-	var qtdEstoqueCv2kgProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[3]) 
-
-    sessionStorage.setItem("Qtd_Estoque_AguaProduto", qtdEstoqueAguaProduto);
-	sessionStorage.setItem("Qtd_Estoque_Cv8kgProduto", qtdEstoqueCv8kgProduto);
-	sessionStorage.setItem("Qtd_Estoque_Cv4kgProduto", qtdEstoqueCv4kgProduto);
-	sessionStorage.setItem("Qtd_Estoque_Cv2kgProduto", qtdEstoqueCv2kgProduto);
-    console.log(qtdEstoqueAguaProduto)
-  
-  if (qtdEstoqueAguaProduto <= 0) {
-    span_acabou_agua.style.display = "block";
-    maisQtdAgua.onclick = ""
-  } 
-
-  if (qtdEstoqueCv8kgProduto <= 0) {
-    span_acabou_cv8kg.style.display = "block";
-    maisQtdCv8kg.onclick = ""
-  } 
-
-  if (qtdEstoqueCv4kgProduto <= 0) {
-    span_acabou_cv4kg.style.display = "block";
-    maisQtdCv4kg.onclick = ""
-  } 
-
-  if (qtdEstoqueCv2kgProduto <= 0) {
-    span_acabou_cv2kg.style.display = "block"
-    maisQtdCv2kg.onclick = ""
-  } 
-
-  console.log(acabou_agua)
+    
 
 }
 
+window.onload = Estoque;
 
-const acabou_agua = sessionStorage.getItem("Qtd_Estoque_AguaProduto")
-const acabou_cv8kg = sessionStorage.getItem("Qtd_Estoque_Cv8kgProduto")
-const acabou_cv4kg = sessionStorage.getItem("Qtd_Estoque_Cv4kgProduto")
-const acabou_cv2kg = sessionStorage.getItem("Qtd_Estoque_Cv2kgProduto")
+
 
 
 
@@ -119,7 +123,7 @@ function menos_qtd_agua() {
 
 function mais_qtd_agua() {
     esse = Number(span_qtd_agua.innerHTML)
-
+    alert(acabou_agua)
     if (esse >=  acabou_agua) {
         span_acabou_agua.style.display = "block";
         span_acabou_agua.innerHTML = `Temos apenas ${ acabou_agua} produtos`
@@ -154,6 +158,7 @@ function mais_qtd_carvao8kg() {
     if (esse >= acabou_cv8kg) {
         span_acabou_cv8kg.style.display = "block";
         span_acabou_cv8kg.innerHTML = `Temos apenas ${acabou_cv8kg} produtos`
+        console.log(acabou_cv8kg)
         
     }  else {
         span_acabou_cv8kg.style.display = "none";
