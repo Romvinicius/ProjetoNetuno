@@ -1,7 +1,6 @@
 var database = require("../database/config")
 
 function listar() {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
         SELECT * FROM usuario;
     `;
@@ -10,7 +9,6 @@ function listar() {
 }
 
 function listar_Estoque() {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
         SELECT * FROM Estoque;
     `;
@@ -21,7 +19,6 @@ function listar_Estoque() {
 
 
 function entrar(email, senha) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucao = `
         SELECT * FROM usuario WHERE email = '${email}' AND senha = '${senha}';
     `;
@@ -32,8 +29,6 @@ function entrar(email, senha) {
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
 function cadastrar(nome, email, senha, cep, bairro, rua, numero) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
-    console.log("Entrando na Model cadastrar");
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucao = `
@@ -46,9 +41,6 @@ function cadastrar(nome, email, senha, cep, bairro, rua, numero) {
 }
 
 function atualizacao(EstoqueAgua,EstoqueCv8kg, EstoqueCv4kg, EstoqueCv2kg) {
-   
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", EstoqueAgua,EstoqueCv8kg, EstoqueCv4kg, EstoqueCv2kg);
-    console.log("Entrando na atualização");
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var ximbica = `
@@ -63,16 +55,14 @@ function atualizacao(EstoqueAgua,EstoqueCv8kg, EstoqueCv4kg, EstoqueCv2kg) {
 }
 
 function venda(qtd_total, pix, id_usuario) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
-    console.log("Entrando na Model venda");
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
-    var instrucao = `
-        INSERT INTO Venda (total, totalDesconto, fkUsuario) VALUES ('${qtd_total}', '${pix}' , ${id_usuario});
+    var vendas = `
+        INSERT INTO Venda (total, ValorTotalPix, fkUsuario) VALUES ('${qtd_total}', '${pix}' , ${id_usuario});
     `;
     console.log("usuario inserindo")
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
+    console.log("Executando a instrução SQL: \n" + vendas);
+    return database.executar(vendas);
 }
 
 module.exports = {

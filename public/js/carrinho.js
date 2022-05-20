@@ -85,8 +85,12 @@ function aqui(){
 window.onload = aqui;
 const id_usuario = Number(sessionStorage.getItem("ID_USUARIO"));
 function finalizar(){
+
+	var qtd_totalVar = qtd_total
+	var pixVar = pix
+	var id_usuarioVar = id_usuario
 	if (qtd_total == 0) {
-	alert("Vcoê deve escolher seus produtor para finalizar a compra")
+	alert("Você deve escolher seus produtor para finalizar a compra")
 	} else {
 		fetch("/usuarios/listar_Estoque", {
 			method: "GET",
@@ -135,40 +139,6 @@ function finalizar(){
 		var qtdEstoqueCv4kg = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[2]) - qtd_cv4kg
 		var qtdEstoqueCv2kg = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[3]) - qtd_cv2kg
 
-
-
-	
-
-		fetch("/usuarios/atualizacao", {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				// crie um atributo que recebe o valor recuperado aqui
-				// Agora vá para o arquivo routes/usuario.js
-				qtdEstoqueAguaServer: qtdEstoqueAgua,
-				qtdEstoqueCv8kgServer: qtdEstoqueCv8kg,
-				qtdEstoqueCv4kgServer: qtdEstoqueCv4kg,
-				qtdEstoqueCv2kgServer: qtdEstoqueCv2kg
-			
-
-			})
-		}).then(function (resposta) {
-		
-			console.log("resposta: ", resposta);
-			alert("Compra Realizada com sucesso!")
-		
-		})
-	
-		setTimeout(function () {
-			window.location = "./produto.html";
-		}, 1000);
-	
-	
-	
-	
-
 		fetch("/usuarios/venda", {
 			method: "POST",
 			headers: {
@@ -207,6 +177,38 @@ function finalizar(){
 				return false;
 			}
 		})
+
+	
+
+		fetch("/usuarios/atualizacao", {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				// crie um atributo que recebe o valor recuperado aqui
+				// Agora vá para o arquivo routes/usuario.js
+				qtdEstoqueAguaServer: qtdEstoqueAgua,
+				qtdEstoqueCv8kgServer: qtdEstoqueCv8kg,
+				qtdEstoqueCv4kgServer: qtdEstoqueCv4kg,
+				qtdEstoqueCv2kgServer: qtdEstoqueCv2kg
+			
+
+			})
+		}).then(function (resposta) {
+		
+			console.log("resposta: ", resposta);
+			alert("Compra Realizada com sucesso!")
+		
+		})
+	
+		setTimeout(function () {
+			window.location = "./produto.html";
+		}, 1000);
+	
+	
+	
+		
 	
 		
 	
