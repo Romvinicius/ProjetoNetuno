@@ -96,7 +96,6 @@ function entrar(req, res) {
 }
 
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nome;
     var email = req.body.email;
     var senha = req.body.senha;
@@ -105,7 +104,6 @@ function cadastrar(req, res) {
     var rua = req.body.rua;
     var numero = req.body.numero;
 
-    // Faça as validações dos valores
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (email == undefined) {
@@ -122,7 +120,6 @@ function cadastrar(req, res) {
         res.status(400).send("Seu número está undefined!");
     } else {
         
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar(nome, email, senha, cep, bairro, rua, numero)
             .then(
                 function (resultado) {
@@ -142,14 +139,12 @@ function cadastrar(req, res) {
 }
 
 function atualizacao(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var EstoqueAgua = req.body.qtdEstoqueAguaServer;
     var EstoqueCv8kg = req.body.qtdEstoqueCv8kgServer;
     var EstoqueCv4kg = req.body.qtdEstoqueCv4kgServer;
     var EstoqueCv2kg = req.body.qtdEstoqueCv2kgServer;
     console.log(EstoqueAgua,EstoqueCv8kg,EstoqueCv4kg,EstoqueCv2kg)
 
-    // Faça as validações dos valores
     if (EstoqueAgua == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (EstoqueCv8kg == undefined) {
@@ -160,7 +155,6 @@ function atualizacao(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else {
         
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.atualizacao(EstoqueAgua,EstoqueCv8kg, EstoqueCv4kg, EstoqueCv2kg)
             .then(
                 function (resultado) {
@@ -180,13 +174,10 @@ function atualizacao(req, res) {
 }
 
 function venda(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var qtd_total = req.body.qtd_total;
     var pix = req.body.pix;
     var id_usuario = req.body.id_usuario;
-    
 
-    // Faça as validações dos valores
     if (qtd_total == undefined) {
         res.status(400).send("Sua Quantidade total está undefined!");
     } else if (pix == undefined) {
@@ -195,7 +186,6 @@ function venda(req, res) {
         res.status(400).send("Seu id_usuario está undefined!")
     } else {
         
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.venda(qtd_total, pix, id_usuario)
             .then(
                 function (resultado) {
