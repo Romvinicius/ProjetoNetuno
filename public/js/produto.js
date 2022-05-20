@@ -123,7 +123,7 @@ function menos_qtd_agua() {
 
 function mais_qtd_agua() {
     esse = Number(span_qtd_agua.innerHTML)
-    alert(acabou_agua)
+    
     if (esse >=  acabou_agua) {
         span_acabou_agua.style.display = "block";
         span_acabou_agua.innerHTML = `Temos apenas ${ acabou_agua} produtos`
