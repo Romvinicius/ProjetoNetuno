@@ -105,7 +105,7 @@
 
     function entrar() {
         aguardar();
-
+        
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
 
@@ -127,6 +127,7 @@
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
+        
 
         fetch("/usuarios/autenticar", {
             method: "POST",
@@ -134,8 +135,10 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
+                
                 emailServer: emailVar,
                 senhaServer: senhaVar
+
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
@@ -149,7 +152,7 @@
 
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
 
                     setTimeout(function () {
                         window.location = "./produto.html";

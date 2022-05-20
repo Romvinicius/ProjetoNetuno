@@ -3,6 +3,13 @@
 	const qtd_cv4kg = Number(sessionStorage.getItem("Quantidade_cv4kg"));
 	const qtd_cv2kg = Number(sessionStorage.getItem("Quantidade_cv2kg"));
 	const qtd_total = Number(sessionStorage.getItem("Quantidade_total"));
+	
+var valorAgua;
+var valorCarvao8kg;
+var valorCarvao4kg;
+var valorCarvao2kg;
+var valor_total;
+var pix;
 
 function aqui(){
 	
@@ -12,12 +19,12 @@ function aqui(){
 	span_qtd_carvao2kg.innerHTML = qtd_cv2kg;
 	qtd_total_produtos.innerHTML = qtd_total;
 
-	var valorAgua = qtd_ag * 13;
-	var valorCarvao8kg = qtd_cv8kg * 28.40;
-	var valorCarvao4kg = qtd_cv4kg * 18.60;
-	var valorCarvao2kg = qtd_cv2kg * 9.80;
-	var valor_total = valorAgua + valorCarvao8kg + valorCarvao4kg + valorCarvao2kg;
-	var pix = valor_total * 0.95
+	valorAgua = qtd_ag * 13;
+	valorCarvao8kg = qtd_cv8kg * 28.40;
+	valorCarvao4kg = qtd_cv4kg * 18.60;
+	valorCarvao2kg = qtd_cv2kg * 9.80;
+	valor_total = valorAgua + valorCarvao8kg + valorCarvao4kg + valorCarvao2kg;
+	pix = valor_total * 0.95
 
 	valor_agua.innerHTML = `R$ ${valorAgua.toFixed(2)}`
 	valor_carvao8kg.innerHTML = `R$ ${valorCarvao8kg.toFixed(2)}`
@@ -76,87 +83,137 @@ function aqui(){
 }
 
 window.onload = aqui;
-
+const id_usuario = Number(sessionStorage.getItem("ID_USUARIO"));
 function finalizar(){
-
-	fetch("/usuarios/listar_Estoque", {
-		method: "GET",
-		headers: {
-			"Content-Type": "application/json"
-		},
+	if (qtd_total == 0) {
+	alert("Vcoê deve escolher seus produtor para finalizar a compra")
+	} else {
+		fetch("/usuarios/listar_Estoque", {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			},
 		
-	}).then(function (resposta) {
-		console.log("ESTOU NO THEN DO listar_Estoque()!")
+		}).then(function (resposta) {
+			console.log("ESTOU NO THEN DO listar_Estoque()!")
 
-		if (resposta.ok) {
-			console.log(resposta);
+			if (resposta.ok) {
+				console.log(resposta);
 
-			resposta.json().then(json => {
-				console.log(json);
-				console.log(JSON.stringify(json));
+				resposta.json().then(json => {
+					console.log(json);
+					console.log(JSON.stringify(json));
 
-				var fkProdutos = [];
-				var qtdEstoques = [];
+					var fkProdutos = [];
+					var qtdEstoques = [];
 
-				for(var i = 0; i < json.length; i++) {
-					fkProdutos.push(json[i].fkProduto)
-					qtdEstoques.push(json[i].qtdEstoque)
-				}
+					for (var i = 0; i < json.length; i++) {
+						fkProdutos.push(json[i].fkProduto)
+						qtdEstoques.push(json[i].qtdEstoque)
+					}
 				
-				sessionStorage.FK_PRODUTOS = fkProdutos;
-				sessionStorage.QTD_ESTOQUE = qtdEstoques;
-			});
+					sessionStorage.FK_PRODUTOS = fkProdutos;
+					sessionStorage.QTD_ESTOQUE = qtdEstoques;
+				});
 
-		} else {
+			} else {
 
-			console.log("Houve um erro ao tentar realizar o login!");
+				console.log("Houve um erro ao tentar realizar o login!");
 
-			resposta.text().then(texto => {
-				console.error(texto);
+				resposta.text().then(texto => {
+					console.error(texto);
 			
-			});
-		}
+				});
+			}
 
-	}).catch(function (erro) {
-		console.log(erro);
-	})
-
-	var qtdEstoqueAgua = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[0]) - qtd_ag
-	var qtdEstoqueCv8kg = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[1]) - qtd_cv8kg
-	var qtdEstoqueCv4kg = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[2]) - qtd_cv4kg
-	var qtdEstoqueCv2kg = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[3]) - qtd_cv2kg
-
-
-
-	
-
-	fetch("/usuarios/atualizacao", {
-		method: "PUT",
-		headers: {
-			"Content-Type": "application/json"
-		},
-		body: JSON.stringify({
-			// crie um atributo que recebe o valor recuperado aqui
-			// Agora vá para o arquivo routes/usuario.js
-			qtdEstoqueAguaServer: qtdEstoqueAgua,
-			qtdEstoqueCv8kgServer: qtdEstoqueCv8kg,
-			qtdEstoqueCv4kgServer: qtdEstoqueCv4kg,
-			qtdEstoqueCv2kgServer: qtdEstoqueCv2kg
-			
-
+		}).catch(function (erro) {
+			console.log(erro);
 		})
-	}).then(function (resposta) {
 
-		console.log("resposta: ", resposta);
-		alert("Compra Realizada com sucesso!")
+		var qtdEstoqueAgua = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[0]) - qtd_ag
+		var qtdEstoqueCv8kg = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[1]) - qtd_cv8kg
+		var qtdEstoqueCv4kg = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[2]) - qtd_cv4kg
+		var qtdEstoqueCv2kg = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[3]) - qtd_cv2kg
+
+
+
+	
+
+		fetch("/usuarios/atualizacao", {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				// crie um atributo que recebe o valor recuperado aqui
+				// Agora vá para o arquivo routes/usuario.js
+				qtdEstoqueAguaServer: qtdEstoqueAgua,
+				qtdEstoqueCv8kgServer: qtdEstoqueCv8kg,
+				qtdEstoqueCv4kgServer: qtdEstoqueCv4kg,
+				qtdEstoqueCv2kgServer: qtdEstoqueCv2kg
+			
+
+			})
+		}).then(function (resposta) {
 		
-	})
+			console.log("resposta: ", resposta);
+			alert("Compra Realizada com sucesso!")
+		
+		})
+	
+		setTimeout(function () {
+			window.location = "./produto.html";
+		}, 1000);
+	
+	
+	
+	
 
+		fetch("/usuarios/venda", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				// crie um atributo que recebe o valor recuperado aqui
+				// Agora vá para o arquivo routes/usuario.js
+				qtd_total: qtd_totalVar,
+				pix: pixVar,
+				id_usuario: id_usuarioVar
 	
-	setTimeout(function () {
-		window.location = "./produto.html";
-	}, 1000);
+			})
+		}).then(function (resposta) {
+		
+			console.log("resposta: ", resposta);
 	
+			if (resposta.ok) {
+				console.log("chegou aqui")
+				cardErro.style.display = "block";
+	
+				mensagem_erro.innerHTML = "Compra realizada com sucesso!";
+	
+				setTimeout(() => {
+					window.location = "./produto.html";
+				}, "5000")
+	
+	
+	
+			} else {
+				cardErro.style.display = "block"
+				mensagem_erro.innerHTML = "Email ja em uso! Tente outro novamente.";
+				setInterval(sumirMensagem, 5000);
+				finalizarAguardar();
+				throw ("Houve um erro ao tentar realizar o cadastro!");
+				return false;
+			}
+		})
+	
+		
+	
+	}
 
 }
+
+
+
 

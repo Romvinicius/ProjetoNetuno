@@ -182,10 +182,9 @@ function sumirMensagem() {
         } else if (senhaVar != confirmacaoSenhaVar) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "As senhas inseridas devem ser iguais para prosseguir!";
-            setInterval(sumirMensagem, 5000);
+            setInterval(sumirMensagem, 7000);
             finalizarAguardar();
             return false;
-             
         }
 
 function finalizarAguardar(texto) {
@@ -199,9 +198,6 @@ function finalizarAguardar(texto) {
 }
 
         
-        
-
-
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -232,7 +228,7 @@ function finalizarAguardar(texto) {
 
                 setTimeout(() => {
                     window.location = "./login.html";
-                }, "2000")
+                }, "5000")
 
 
 
