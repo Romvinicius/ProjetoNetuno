@@ -208,7 +208,6 @@ function venda(req, res) {
 function atualizarProduto(req, res) {
     var idProduto = req.body.idProduto;
     var quantidade = req.body.quantidade;
-
     if (idProduto == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (quantidade == undefined) {
@@ -232,6 +231,38 @@ function atualizarProduto(req, res) {
     }
 }
 
+function buscarQuantidade(req, res) {
+    console.log("chegou aqui no controller")
+    var idProduto = req.body.idProduto;
+
+    console.log("LOGANDO ID DO PRODUTO NO CONTROLLER: ", idProduto)
+
+
+    if (idProduto == undefined) {
+        
+        res.status(400).send("Seu id_produto está undefined!");
+
+    } else {
+        usuarioModel.buscarQuantidade(idProduto)
+            .then(
+                function (resultado) {
+
+                    console.log("LOGANDO QUANTIDADE ATUAL: ", resultado[0].quantidade)
+                    res.status(200).json(resultado);
+
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        `\nHouve um erro ao buscar quantidade id: ${idProduto} `,
+                        erro.sqlMessage
+                    );
+                }
+            );
+    }
+}
+
 module.exports = {
     entrar,
     cadastrar,
@@ -240,5 +271,8 @@ module.exports = {
     listar_Estoque,
     atualizacao,
     venda,
+    atualizarProduto,
+    buscarQuantidade
+
 
 }

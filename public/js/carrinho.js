@@ -205,13 +205,6 @@ function finalizar(){
 		setTimeout(function () {
 			window.location = "./produto.html";
 		}, 1000);
-	
-	
-	
-		
-	
-		
-	
 	}
 
 }

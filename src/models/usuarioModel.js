@@ -70,6 +70,11 @@ function venda(qtd_total, pix, id_usuario) {
     return database.executar(vendas);
 }
 
+function buscarQuantidade(id_produto) {
+    var buscarQuantidades = `select qtdEstoque from Estoque where fkProduto = ${id_produto};`
+    return database.executar(buscarQuantidades);
+}
+
 module.exports = {
     entrar,
     cadastrar,
@@ -77,5 +82,7 @@ module.exports = {
     listar_Estoque,
     atualizacao,
     venda,
+    atualizarProduto,
+    buscarQuantidade
 
 };

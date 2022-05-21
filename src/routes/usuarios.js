@@ -35,4 +35,11 @@ router.put("/atualizar/produto", function (req, res) {
     usuarioController.atualizarProduto(req, res);
 })
 
+router.get("/buscarQuantidade", function (req, res) {
+    console.log("buscarQuantidade ROTA");
+    usuarioController.buscarQuantidade(req, res);
+})
+
+
+
 module.exports = router;
