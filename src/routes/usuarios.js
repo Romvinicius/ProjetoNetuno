@@ -31,4 +31,8 @@ router.post("/venda", function (req, res) {
     usuarioController.venda(req, res);
 })
 
+router.put("/atualizar/produto", function (req, res) {
+    usuarioController.atualizarProduto(req, res);
+})
+
 module.exports = router;

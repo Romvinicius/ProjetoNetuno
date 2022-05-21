@@ -40,7 +40,7 @@ function cadastrar(nome, email, senha, cep, bairro, rua, numero) {
     return database.executar(instrucao);
 }
 
-function atualizacao(EstoqueAgua,EstoqueCv8kg, EstoqueCv4kg, EstoqueCv2kg) {
+function atualizacao(EstoqueAgua, EstoqueCv8kg, EstoqueCv4kg, EstoqueCv2kg) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var ximbica = `
@@ -52,6 +52,11 @@ function atualizacao(EstoqueAgua,EstoqueCv8kg, EstoqueCv4kg, EstoqueCv2kg) {
     console.log("update acontecendo")
     console.log("Executando a instrução SQL: \n" + ximbica);
     return database.executar(ximbica);
+}
+
+function atualizarProduto(id_produto, quantidade) {
+    var sql = `update Estoque set qtdEstoque = ${quantidade} where fkProduto = ${id_produto};`;
+    return database.executar(sql);
 }
 
 function venda(qtd_total, pix, id_usuario) {
@@ -72,5 +77,5 @@ module.exports = {
     listar_Estoque,
     atualizacao,
     venda,
-    
+
 };

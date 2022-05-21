@@ -68,7 +68,7 @@ function entrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
-        
+
         usuarioModel.entrar(email, senha)
             .then(
                 function (resultado) {
@@ -119,7 +119,7 @@ function cadastrar(req, res) {
     } else if (numero == undefined) {
         res.status(400).send("Seu número está undefined!");
     } else {
-        
+
         usuarioModel.cadastrar(nome, email, senha, cep, bairro, rua, numero)
             .then(
                 function (resultado) {
@@ -143,19 +143,19 @@ function atualizacao(req, res) {
     var EstoqueCv8kg = req.body.qtdEstoqueCv8kgServer;
     var EstoqueCv4kg = req.body.qtdEstoqueCv4kgServer;
     var EstoqueCv2kg = req.body.qtdEstoqueCv2kgServer;
-    console.log(EstoqueAgua,EstoqueCv8kg,EstoqueCv4kg,EstoqueCv2kg)
+    console.log(EstoqueAgua, EstoqueCv8kg, EstoqueCv4kg, EstoqueCv2kg)
 
     if (EstoqueAgua == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (EstoqueCv8kg == undefined) {
         res.status(400).send("Seu email está undefined!");
-    }else if (EstoqueCv4kg == undefined) {
+    } else if (EstoqueCv4kg == undefined) {
         res.status(400).send("Seu email está undefined!");
-    }else if (EstoqueCv2kg == undefined) {
+    } else if (EstoqueCv2kg == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else {
-        
-        usuarioModel.atualizacao(EstoqueAgua,EstoqueCv8kg, EstoqueCv4kg, EstoqueCv2kg)
+
+        usuarioModel.atualizacao(EstoqueAgua, EstoqueCv8kg, EstoqueCv4kg, EstoqueCv2kg)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -185,7 +185,7 @@ function venda(req, res) {
     } else if (id_usuario == undefined) {
         res.status(400).send("Seu id_usuario está undefined!")
     } else {
-        
+
         usuarioModel.venda(qtd_total, pix, id_usuario)
             .then(
                 function (resultado) {
@@ -205,6 +205,33 @@ function venda(req, res) {
     }
 }
 
+function atualizarProduto(req, res) {
+    var idProduto = req.body.idProduto;
+    var quantidade = req.body.quantidade;
+
+    if (idProduto == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (quantidade == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else {
+        usuarioModel.atualizarProduto(idProduto, quantidade)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        `\nHouve um erro ao atualizar produto com id: ${idProduto} `,
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     entrar,
     cadastrar,
@@ -213,5 +240,5 @@ module.exports = {
     listar_Estoque,
     atualizacao,
     venda,
-  
+
 }
