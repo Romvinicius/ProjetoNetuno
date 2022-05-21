@@ -17,11 +17,15 @@ router.get("/listar_Estoque", function (req, res) {
 
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
-})
+});
 
 router.put("/atualizacao", function (req, res) {
     usuarioController.atualizacao(req, res);
-})
+});
+
+router.put("/reajusteEstoque", function (req, res) {
+    usuarioController.reajusteEstoque(req, res);
+});
 
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);

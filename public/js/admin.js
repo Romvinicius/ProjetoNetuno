@@ -133,3 +133,62 @@ function iniciarPagina() {
     
 
 }
+
+
+function enviar() {
+    var quantidade = Number(input_valor.value)
+
+    if (select_produto.value == 1) {
+      var agua_para_estoque = Number(acabou_agua) + quantidade
+        
+    } else {
+      var agua_para_estoque = Number(acabou_agua)
+    }
+
+    if (select_produto.value == 2) {
+      var cv8kg_para_estoque = Number(acabou_cv8kg) + quantidade
+    
+    } else {
+      var cv8kg_para_estoque = Number(acabou_cv8kg)
+    }
+
+    if (select_produto.value == 3) {
+      var cv4kg_para_estoque = Number(acabou_cv4kg) + quantidade
+    } else {
+      var cv4kg_para_estoque = Number(acabou_cv4kg)
+    }
+    
+    if (select_produto.value == 4) {
+      var cv2kg_para_estoque = Number(acabou_cv2kg) + quantidade
+    }else {
+      var cv2kg_para_estoque = Number(acabou_cv2kg)
+    }
+    console.log(cv8kg_para_estoque)
+    
+
+    fetch("/usuarios/reajusteEstoque", {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				// crie um atributo que recebe o valor recuperado aqui
+				// Agora vá para o arquivo routes/usuario.js
+				novaQtdAguaServer: agua_para_estoque,
+				novaQtdCv8kgServer: cv8kg_para_estoque,
+				novaQtdCv4kgServer: cv4kg_para_estoque,
+				novaQtdCv2kgServer: cv2kg_para_estoque,
+			})
+		}).then(function (resposta) {
+      
+			console.log("resposta: ", resposta);
+			alert("Reajuste no Estoque Realizada com sucesso!")
+		
+		})
+	
+		setTimeout(function () {
+		window.location = "./admin.html";
+		}, 1000);
+
+
+}

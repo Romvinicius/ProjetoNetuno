@@ -4,7 +4,7 @@ use ProjetoNetuno;
 create table usuario (
 idUsuario int primary key auto_increment ,
 nome varchar(45),
-email varchar unique(45),
+email varchar(45) unique,
 senha varchar(45),
 cep char (8),
 bairro varchar(45),
@@ -17,11 +17,16 @@ select * from usuario;
 
 create table Venda (
 idVenda int auto_increment,
-total varchar(45),
-dtVenda date,
+totalProdutos varchar(45),
+ValorTotal decimal(10,2),
+dtVenda datetime default(current_timestamp),
 fkUsuario int, foreign key (fkUsuario) references usuario (idUsuario),
 primary key (idVenda, fkUsuario)
 );
+
+INSERT INTO Venda (totalProdutos, ValorTotal, fkUsuario) VALUES ('2', '100.22' , 1);
+
+select * from Venda;
 
 create table Produto (
 idProduto int primary key auto_increment,
@@ -29,6 +34,8 @@ nome varchar(45),
 descricao varchar(45),
 valorProduto varchar(45)
 );
+
+
 
 insert into Produto values 
 (null , 'Galão 20L' , 'Bioleve' , '13,00'),
@@ -44,12 +51,14 @@ qtdEstoque int
 );
 
 insert into Estoque values 
-(1 , '100'),
-(2 , '100'),
-(3 , '100'),
-(4 , '100');
+(1 , '10'),
+(2 , '10'),
+(3 , '10'),
+(4 , '10');
 
 select * from Estoque;
+
+drop table Estoque;
 
 create table Carrinho (
 fkVenda int, foreign key (fkVenda) references Venda (idVenda),
@@ -59,6 +68,8 @@ valorDesconto varchar(45),
 qtdProduto varchar(45),
 primary key (fkVenda, fkUsuario, fkProduto)
 );
+
+
 
 
 

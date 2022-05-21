@@ -173,6 +173,42 @@ function atualizacao(req, res) {
     }
 }
 
+function reajusteEstoque(req, res) {
+    var novaQtdAgua = req.body.novaQtdAguaServer;
+    var novaQtdCv8kg = req.body.novaQtdCv8kgServer;
+    var novaQtdCv4kg = req.body.novaQtdCv4kgServer;
+    var novaQtdCv2kg = req.body.novaQtdCv2kgServer;
+   
+    console.log(novaQtdAgua, novaQtdCv8kg, novaQtdCv4kg, novaQtdCv2kg)
+
+    if (novaQtdAgua == undefined) {
+        res.status(400).send("Sua qtdAgua está undefined!");
+    } else if (novaQtdCv8kg == undefined) {
+        res.status(400).send("Sua qtd cv8kg está undefined!");
+    }else if (novaQtdCv4kg == undefined) {
+        res.status(400).send("Sua qtd cv4kg está undefined!");
+    }else if (novaQtdCv2kg == undefined) {
+        res.status(400).send("Sua qtd cv2kg está undefined!");
+    }else {
+        
+        usuarioModel.reajusteEstoque(novaQtdAgua, novaQtdCv8kg, novaQtdCv4kg, novaQtdCv2kg)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar a reajusteEstoque! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 function venda(req, res) {
     var qtd_total = req.body.qtd_total;
     var pix = req.body.pix;
@@ -213,5 +249,6 @@ module.exports = {
     listar_Estoque,
     atualizacao,
     venda,
+    reajusteEstoque
   
 }
