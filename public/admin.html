@@ -20,7 +20,7 @@
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 </head>
-<body>
+<body onload="iniciarPagina(),receberProdutos()">
      <!--Header-->
 
      <header id="header">
@@ -46,15 +46,13 @@
         <div class="selecao">
             
             <select id="select_produto">
-                <option value="1">Agua 20L</option>
-                <option value="2">Carvão 8Kg</option>
-                <option value="3">Carvão 4Kg</option>
-                <option value="4">Carvão 2Kg</option>
+        
             </select>
             <input type="number" id="input_valor">
             <button onclick="enviar()">
                 Enviar para Estoque
             </button>
+           
 
         </div>
         <div class="grafico1">

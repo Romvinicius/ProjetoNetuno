@@ -77,6 +77,15 @@ function venda(qtd_total, pix, id_usuario) {
     return database.executar(vendas);
 }
 
+function receberProdutos() {
+    var instrucao = `
+        SELECT * FROM Produto;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+
 module.exports = {
     entrar,
     cadastrar,
@@ -84,6 +93,7 @@ module.exports = {
     listar_Estoque,
     atualizacao,
     venda,
-    reajusteEstoque
+    reajusteEstoque,
+    receberProdutos,
     
 };

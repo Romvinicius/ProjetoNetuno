@@ -1,4 +1,4 @@
-window.onload = iniciarPagina;
+const labels = []
 
 var acabou_agua;
 var acabou_cv8kg;
@@ -30,18 +30,15 @@ function iniciarPagina() {
 					qtdEstoques.push(json[i].qtdEstoque)
 				}
 
-
-				
 				sessionStorage.FK_PRODUTOS = fkProdutos;
 				sessionStorage.QTD_ESTOQUE = qtdEstoques;       
 
-                
-
-                var qtdEstoqueAguaProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[0])
-                var qtdEstoqueCv8kgProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[1])
-                var qtdEstoqueCv4kgProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[2]) 
-                var qtdEstoqueCv2kgProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[3]) 
-
+       
+          var qtdEstoqueAguaProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[0]) 
+          var qtdEstoqueCv8kgProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[1])
+          var qtdEstoqueCv4kgProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[2]) 
+          var qtdEstoqueCv2kgProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[3]) 
+          
                 sessionStorage.setItem("Qtd_Estoque_AguaProduto", qtdEstoqueAguaProduto);
                 sessionStorage.setItem("Qtd_Estoque_Cv8kgProduto", qtdEstoqueCv8kgProduto);
                 sessionStorage.setItem("Qtd_Estoque_Cv4kgProduto", qtdEstoqueCv4kgProduto);
@@ -53,65 +50,7 @@ function iniciarPagina() {
                 acabou_cv2kg = sessionStorage.getItem("Qtd_Estoque_Cv2kgProduto")
 
                 console.log(acabou_agua)
-                const labels = [
-                    'Galão 20L',
-                    'Carvão 8Kg',
-                    'Carvão 4Kg',
-                    'Carvão 3Kg'
-                  ];
-                
-                  const data = {
-                    labels: labels,
-                    datasets: [{
-                      label: 'Produtos em estoque',
-                      backgroundColor: 'rgb(9, 31, 71)',
-                      borderColor: 'black',
-                      data: [acabou_agua, acabou_cv8kg, acabou_cv4kg, acabou_cv2kg],
-                      fill: true,
-                    }
-
-                    ]
-                    
-                  };
-                
-                  const config = {
-                  type: 'bar',
-                  data: data,
-                  options: {
-                      
-                    scales: {
-                        
-                        y: {
-                            beginAtZero: true,
-                            max: 100,
-                            ticks: {
-                                color: 'black'
-                            },
-                            grid: {
-                                color: 'black'
-                            },
-
-                        },
-                        x: {
-                            grid: {
-                                color: 'black'
-                            },
-                            
-                        },
-
-                        },
-                    elements: {
-                        line: {
-                            borderWidth: 10,
-                        }
-                    }
-                  },
-                  
-                };
-                    const myChart = new Chart(
-                    document.getElementById('myChart'),
-                    config
-                  );
+                 
                 
 			});
 
@@ -192,3 +131,103 @@ function enviar() {
 
 
 }
+
+function receberProdutos(){
+
+  fetch("/usuarios/receberProdutos", {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		
+	}).then(function (resposta) {
+		console.log("ESTOU NO THEN DO receberProdutos()!")
+
+		if (resposta.ok) {
+			console.log(resposta);
+
+			resposta.json().then(json => {
+				console.log(json);
+				console.log(JSON.stringify(json));
+
+				for(var i = 0; i < json.length; i++) {
+          
+          var recebimento = json[i]
+          console.log(recebimento.idProduto)
+          select_produto.innerHTML += `<option value="${recebimento.idProduto}">${recebimento.nome}</option>`
+          labels.push(recebimento.nome)
+				}
+
+      console.log(labels)
+        const data = {
+          labels: labels,
+          datasets: [{
+            label: 'Produtos em estoque',
+            backgroundColor: 'rgb(9, 31, 71)',
+            borderColor: 'black',
+            data: [acabou_agua, acabou_cv8kg, acabou_cv4kg, acabou_cv2kg],
+            fill: true,
+          }
+
+          ]
+          
+        };
+      
+        const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            
+          scales: {
+              
+              y: {
+                  beginAtZero: true,
+                  max: 100,
+                  ticks: {
+                      color: 'black'
+                  },
+                  grid: {
+                      color: 'black'
+                  },
+
+              },
+              x: {
+                  grid: {
+                      color: 'black'
+                  },
+                  
+              },
+
+              },
+          elements: {
+              line: {
+                  borderWidth: 10,
+              }
+          }
+        },
+        
+      };
+          const myChart = new Chart(
+          document.getElementById('myChart'),
+          config
+        );
+				
+			});
+
+		} else {
+
+			console.log("Houve um erro ao tentar realizar o receberProdutos!");
+
+			resposta.text().then(texto => {
+				console.error(texto);
+			
+			});
+		}
+
+	}).catch(function (erro) {
+		console.log(erro);
+	})
+
+}
+
+

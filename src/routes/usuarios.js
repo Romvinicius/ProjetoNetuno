@@ -35,4 +35,10 @@ router.post("/venda", function (req, res) {
     usuarioController.venda(req, res);
 })
 
+router.get("/receberProdutos", function (req, res) {
+    usuarioController.receberProdutos(req, res);
+});
+
+
+
 module.exports = router;
