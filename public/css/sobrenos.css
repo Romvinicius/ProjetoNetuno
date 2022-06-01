@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 .banner {
     display: flex;
     background-size: cover;
-    height: 90vh;
+    height: 110vh;
     flex-direction: column;
     background-image: url(../assets/imgs/jong-marshes-79mNMAvSORg-unsplash.jpg);
     
@@ -14,9 +16,9 @@
         display: flex;
         flex-direction: column;
         width: 65%;
-        height: 55%;
+        height: 65%;
         margin: 8% 0% 0% 17%;
-        background-color: #e5e5e580;
+        background-color: rgba(0, 0, 0, 0.39);
         border-radius: 5px;
         border: 3px solid rgb(9, 31, 71);
         align-items: center;
@@ -29,16 +31,22 @@
   }
 
   .container .titulo {
-      color: rgb(9, 31, 71);
-      font-family: fantasy;
-      border-bottom: 2px solid rgb(9, 31, 71);
+      color: white;
+      font-family: Roboto;
+      border-bottom: 2px solid white;
       margin-top: 15px;
       
   }
+  
 
   .container .texto {
+    color: white;
     margin-top: 90px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: Roboto;
+    font-weight: 1000;
+    font-size: larger;
+    line-height: 30px;
     width: 85%;
     height: 72%;
   }
+  

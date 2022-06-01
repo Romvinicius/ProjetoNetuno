@@ -29,7 +29,7 @@
         <div class="paginas">               
             <a href="./cardapio.html"><li>Produtos</li></a>
             <a href="./sobrenos.html"><li>Sobre Nós</li></a>
-            <a class="agora" href="./login.html"><li>Login</li></a>
+            <a id="agora" href="./login.html"><li>Login</li></a>
             <a href="./cadastro.html"><li>Cadastre-Se</li></a>
         </div>  
         <div class="icones">
@@ -111,7 +111,7 @@
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagem_erro.innerHTML = "Todos os campos são obrigatorios!";
             finalizarAguardar();
             return false;
         }

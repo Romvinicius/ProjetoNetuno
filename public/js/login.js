@@ -34,7 +34,6 @@ function entrar() {
 
             resposta.text().then(texto => {
                 console.error(texto);
-                // limparFormulario();
                 finalizarAguardar(texto);
             });
         }
@@ -55,7 +54,6 @@ function validarSessao() {
     var h1Titulo = document.getElementById("h1_titulo");
 
     if (login != null && nome != null) {
-        // window.alert(`Seja bem-vindo, ${nome}!`);
         h1Titulo.innerHTML = `${login}`;
 
         finalizarAguardar();

@@ -180,6 +180,14 @@ function receberProdutos() {
           data: data,
           options: {
 
+            plugins: {
+              legend:{
+                labels:{
+                color:'black'
+                }
+              }
+            },
+
             scales: {
 
               y: {
@@ -196,7 +204,7 @@ function receberProdutos() {
               x: {
                 grid: {
                   color: 'black'
-                },
+                },             
 
               },
 

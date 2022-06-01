@@ -38,7 +38,7 @@
             <a href="./login.html">
                 <li>Login</li>
             </a>
-            <a class="agora" href="./cadastro.html">
+            <a id="agora" href="./cadastro.html">
                 <li>Cadastre-Se</li>
             </a>
         </div>
@@ -166,7 +166,7 @@ function sumirMensagem() {
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || cepVar == "" ||
             bairroVar == "" || ruaVar == "" || numeroVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Todos os campos devem ser obrigatórios!.";
+            mensagem_erro.innerHTML = "Todos os campos são obrigatórios!.";
             setInterval(sumirMensagem, 5000);
             finalizarAguardar();
             return false;
