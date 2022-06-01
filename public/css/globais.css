@@ -68,6 +68,16 @@ body {
     margin-right: 50px;
 }
 
+#esse{
+    align-items: center;
+    display: flex;
+    list-style:none;
+    width: 33%;
+    justify-content: center;
+    
+}
+
+
 .agora {
     font-weight: 800;
     color: rgb(17, 65, 153);

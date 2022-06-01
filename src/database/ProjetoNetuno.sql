@@ -24,9 +24,6 @@ fkUsuario int, foreign key (fkUsuario) references usuario (idUsuario),
 primary key (idVenda, fkUsuario)
 );
 
-INSERT INTO Venda (totalProdutos, ValorTotal, fkUsuario) VALUES ('2', '100.22' , 1);
-
-select * from Venda;
 
 create table Produto (
 idProduto int primary key auto_increment,
@@ -35,15 +32,12 @@ descricao varchar(45),
 valorProduto varchar(45)
 );
 
-
-
 insert into Produto values 
 (null , 'Galão 20L' , 'Bioleve' , '13,00'),
 (null , 'Carvão 8Kg' , 'Brazica' , '28,40'),
 (null , 'Carvão 4Kg' , 'Brazica' , '18,60'),
 (null , 'Carvão 2Kg' , 'Brazica' , '9,80');
 
-select * from Produto;
 
 create table Estoque (
 fkProduto int primary key auto_increment,
@@ -55,10 +49,6 @@ insert into Estoque values
 (2 , '10'),
 (3 , '10'),
 (4 , '10');
-
-select * from Estoque;
-
-drop table Estoque;
 
 create table Carrinho (
 fkVenda int, foreign key (fkVenda) references Venda (idVenda),

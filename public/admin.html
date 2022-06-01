@@ -25,11 +25,9 @@
 
      <header id="header">
         <div class="logo"><a href="./index.html"><img id="logo_netuno" src="./assets/icon/logo_Netuno_001.png"></a></div>
-        <div class="paginas">               
-            <a href="./cardapio.html"><li>Produtos</li></a>
-            <a href="./sobrenos.html"><li>Sobre Nós</li></a>
-            <a class="agora" href="./login.html"><li>Login</li></a>
-            <a href="./cadastro.html"><li>Cadastre-Se</li></a>
+        <div id="esse">               
+            <a href="./index.html"><li>Sair</li></a>
+            
         </div>  
         <div class="icones">
             <li><img id="icones_header" src="./assets/icon/sino.png"></li>
@@ -46,8 +44,8 @@
         <div class="selecao">
             
             <select id="select_produto">
-        
-            </select>
+                
+            </select>:
             <input type="number" id="input_valor">
             <button onclick="enviar()">
                 Enviar para Estoque
@@ -55,8 +53,11 @@
            
 
         </div>
-        <div class="grafico1">
-            <canvas id="myChart"></canvas>
+        <div class="containerGrafico">
+            <div class="grafico1">
+                <canvas id="myChart"></canvas>
+            </div>
+            
         </div>
     </div>   
 
