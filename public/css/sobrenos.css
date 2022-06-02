@@ -5,7 +5,7 @@
     background-size: cover;
     height: 110vh;
     flex-direction: column;
-    background-image: url(../assets/imgs/jong-marshes-79mNMAvSORg-unsplash.jpg);
+    background-image: url(../assets/imgs/marFiltro.png);
     
     
     
@@ -18,9 +18,9 @@
         width: 65%;
         height: 65%;
         margin: 8% 0% 0% 17%;
-        background-color: rgba(0, 0, 0, 0.39);
+        background-color: #e5e5e527;
         border-radius: 5px;
-        border: 3px solid rgb(9, 31, 71);
+        border: 3px solid white;
         align-items: center;
         
 

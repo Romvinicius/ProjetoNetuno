@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 .banner {
     display: flex;
     background-size: cover;
     height: 90vh;
-    background-image: url(../assets/imgs/jong-marshes-79mNMAvSORg-unsplash.jpg);
+    background-image: url(../assets/imgs/marFiltro.png);
     justify-content: center;
     align-items: center;
 }
@@ -19,7 +21,8 @@
     width: 70%;
     height: 100%;
     flex-direction: column;
-    background-color: rgba(219, 207, 207, 0.712);
+    background-color: #e5e5e58c;
+    font-weight: bold;
     justify-content: space-around;
     border: 1px solid rgb(9, 31, 71);
     border-radius: 15px 0px 0px 15px;
@@ -44,8 +47,8 @@
 }
 
 .relatorio .titulo h1 {
-    color: rgb(17, 65, 153);
-    font-family: fantasy;
+    text-decoration: underline;
+    font-family: Roboto;
     align-items: center;
     margin: 0;
 
@@ -53,7 +56,7 @@
 
 .div_qtd_valor {
     display: flex;
-    font-family: fantasy;
+    font-family: Roboto;
     height: 5%;
     justify-content: center;
     border-bottom: 1px solid rgb(9, 31, 71);
@@ -64,7 +67,7 @@
 .div_agua {
     
     display: flex;
-    font-family: fantasy;
+    font-family: Roboto;
     height: 21.25%;
     justify-content: space-between;
     align-items: center;
@@ -75,7 +78,7 @@
 
 .div_carvao8kg {
     display: flex;
-    font-family: fantasy;
+    font-family: Roboto;
     height: 21.25%;
     border-bottom: 1px solid rgb(9, 31, 71);
     align-items: center;
@@ -86,7 +89,7 @@
 
 .div_carvao4kg {
     display: flex;
-    font-family: fantasy;
+    font-family: Roboto;
     height: 21.25%;
     border-bottom: 1px solid rgb(9, 31, 71);
     align-items: center;
@@ -96,7 +99,7 @@
 
 .div_carvao2kg {
     display: flex;
-    font-family: fantasy;
+    font-family: Roboto;
     height: 21.25%;
 
     align-items: center;
@@ -112,12 +115,13 @@
 }
 
 .resumo {
+    font-weight: bold;
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 30%;
-    font-family: fantasy;
-    background-color: rgba(219, 207, 207, 0.712);
+    font-family: Roboto;
+    background-color: #e5e5e58c;
     border-bottom: 1px solid rgb(9, 31, 71);
     border-right: 1px solid rgb(9, 31, 71);
     border-top: 1px solid rgb(9, 31, 71);
@@ -198,14 +202,15 @@
 }
 
 .btn_finalizar{
+    font-weight: bold;
     height: 50px;
     width: 150px;
     border-radius: 7px;
     align-items: center;
-    font-family: fantasy;
+    font-family: Roboto;
     font-size: large;
-    border: 2px solid rgb(9, 31, 71);
-    background-color: rgba(17, 121, 153, 0.445);
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255, 0.2);
     margin-top: 30px;
     cursor: pointer;
 }
@@ -213,7 +218,7 @@
 .btn_finalizar:hover {
     transform: scale(1.1);
     transition: all 0.5s;
-    font-family: fantasy;
+    font-family: Roboto;
     font-size: large;
     background-color: transparent;
   } 

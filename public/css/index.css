@@ -5,7 +5,7 @@
     background-size: cover;
     height: 90vh;
     flex-direction: column;
-    background-image: url(../assets/imgs/jong-marshes-79mNMAvSORg-unsplash.jpg);
+    background-image: url(../assets/imgs/marFiltro.png);
     justify-content: center;
     align-items: center;
 }
@@ -13,16 +13,14 @@
 
 
 .banner .container #frase_maior {
-    font-family: fantasy; 
-    color: rgb(9, 31, 71);
-    
-    
+    font-family: Roboto; 
+    font-weight: bold;
+    color: white;     
 }
 
 .banner .container h1 {
    margin: 0;
-  font-size: 40px;
-   
+  font-size: 40px;   
 }
 
 .banner .container h6 {
@@ -32,8 +30,9 @@
 }
 
 .banner .container #frase_menor {
-    font-family: fantasy;
-    color: rgb(9, 31, 71);
+    font-family: Roboto;
+    font-weight: bold;
+    color: white;
     
     
 }
@@ -48,22 +47,25 @@
 }
 
 #peca_ja{
+  color: white;
     height: 50px;
     width: 150px;
     border-radius: 7px;
     align-items: center;
-    font-family: fantasy;
+    font-family: Roboto;
     font-size: large;
-    border: 2px solid rgb(9, 31, 71);
-    background-color: rgba(17, 121, 153, 0.445);
+    font-weight: bold;
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255, 0.1);
     margin-top: 30px;
-  cursor: pointer;
+    cursor: pointer;
 }
 
 #peca_ja:hover {
     transform: scale(1.1);
     transition: all 0.5s;
-    font-family: fantasy;
+    font-family: Roboto;
+    font-weight: bold;
     font-size: large;
     background-color: transparent;
   } 

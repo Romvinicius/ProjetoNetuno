@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 .banner {
   display: flex;
   background-size: cover;
   flex-direction: column;
-  background-image: url(../assets/imgs/jong-marshes-79mNMAvSORg-unsplash.jpg);
+  background-image: url(../assets/imgs/marFiltro.png);
   
 }
 
@@ -16,7 +17,7 @@
 }
 
 .banner .container .card {
-    background-color: rgba(255, 255, 255, 0.712);
+    background-color:  rgba(255, 255, 255, 0.432);
     border: 1px solid rgb(9, 31, 71);
     height: fit-content;
     width: 700px;
@@ -106,6 +107,7 @@
     border-bottom: 2px solid rgb(11, 82, 214);
     background-color: transparent;
     outline: 0;
+    transition: 400ms;
   }
 
   input:focus{

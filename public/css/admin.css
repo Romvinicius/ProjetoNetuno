@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 .banner {
     display: flex;
@@ -44,8 +45,8 @@
   text-align: center;
   border: none;
   border-bottom: 2px solid rgb(9, 31, 71);
-  width: 120px;
-  height: 30px;
+  width: 150px;
+  height: 20px;
   background-color: transparent;
 
 }
@@ -63,7 +64,8 @@ select {
     height: 30px;
     width: 100px;
     border-radius: 7px;
-    font-family: fantasy;
+    font-weight: 1000;
+    font-family: Roboto;
     border: 2px solid rgb(9, 31, 71);
     background-color: rgba(17, 121, 153, 0.445);
     
@@ -75,12 +77,14 @@ select {
     height: 30px;
     width: 150px;
     border-radius: 7px;
-    font-family: fantasy;
+    font-family: Roboto;
+    font-weight: 1000;
     border: 2px solid rgb(9, 31, 71);
     background-color: rgba(17, 121, 153, 0.445);
 }
 
 h1{
-  font-family: fantasy; 
-  font-weight: 100;
+  font-family: Roboto; 
+  font-weight: 1000;
+  text-decoration: underline;
 }

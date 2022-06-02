@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 .banner {
     height: 90vh;
     display: flex;
-    background-image: url(../assets/imgs/jong-marshes-79mNMAvSORg-unsplash.jpg);
+    background-image: url(../assets/imgs/marFiltro.png);
     background-size: cover;
     flex-direction: column;
     justify-content: space-around;
@@ -21,7 +23,7 @@
     align-items: center;  
     width: 17%;
     height: 70%;
-   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   font-family: Roboto;
    font-size: 14px;
     color: rgb(9, 31, 71);
     display: flex;
@@ -53,7 +55,7 @@
     display: flex;
     margin-top: 5%;
     align-items: center;
-    font-family: fantasy;
+    font-family: Roboto;
     color: black;
 }
 
@@ -67,7 +69,7 @@
     margin-top: 10%;
     justify-content: space-between;
     align-items: center;
-    font-family: fantasy;
+    font-family: Roboto;
     color: black;
 }
 
@@ -91,7 +93,7 @@ li {
 .produto_titulo h3 {
     justify-items: center;
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
     margin: 0;
 }
 

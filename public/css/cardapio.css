@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 .banner {
     display: flex;
     background-size: cover;
     height: 90vh;
     flex-direction: column;
-    background-image: url(../assets/imgs/jong-marshes-79mNMAvSORg-unsplash.jpg);
+    background-image: url(../assets/imgs/marFiltro.png);
     
 }
 
@@ -33,7 +35,8 @@
 }
 
 span h1 {
-    font-family: fantasy;
+    font-family: Roboto;
+    color: white;
     text-decoration: underline;
     font-size: 40px;
     margin-left: 44%;
@@ -63,7 +66,6 @@ span h1 {
     display: flex;
     width: 50%;
     height: 100%;
-    
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -83,13 +85,16 @@ span h1 {
 
 .produto_agua li {
    list-style: none;
-   font-family: fantasy;
+   font-family: Roboto;
     padding-top: 20px;
 }
 
 .produto_carvao li {
     list-style: none;
-    font-family: fantasy;
-     padding-top: 20px;
+    font-family: Roboto;
+    padding-top: 20px;
  }
+ 
+
+
 
