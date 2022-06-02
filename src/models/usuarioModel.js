@@ -66,11 +66,26 @@ function reajusteEstoque(novaQtdAgua, novaQtdCv8kg, novaQtdCv4kg, novaQtdCv2kg) 
     return database.executar(reajuste);
 }
 
-function venda(qtd_total, pix, id_usuario) {
+function venda(valorAgua,valorCarvao8kg,valorCarvao4kg,valorCarvao2kg,qtd_ag,qtd_cv8kg,qtd_cv4kg,qtd_cv2kg,qtd_total, valor_total, id_usuario) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var vendas = `
-        INSERT INTO Venda (totalProdutos, ValorTotal, fkUsuario) VALUES ('${qtd_total}', '${pix}' , ${id_usuario});
+        INSERT INTO Venda (totalProdutos, ValorTotal, fkUsuario) VALUES ('${qtd_total}', '${valor_total}' , ${id_usuario});
+        SELECT * FROM venda ORDER BY idVenda DESC LIMIT 1;
+    `;
+    console.log("usuario inserindo")
+    console.log("Executando a instrução SQL: \n" + vendas);
+    return database.executar(vendas);
+}
+
+function carrinho(idVenda, valorAgua,valorCarvao8kg,valorCarvao4kg,valorCarvao2kg,qtd_ag,qtd_cv8kg,qtd_cv4kg,qtd_cv2kg,id_usuario) {
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var vendas = `
+        INSERT INTO Carrinho (fkVenda, fkUsuario, fkProduto, qtdProduto, valorTotalProduto) VALUES ('${idVenda}' , '${id_usuario}' , 1 , '${qtd_ag}' , '${valorAgua}');
+        INSERT INTO Carrinho (fkVenda, fkUsuario, fkProduto, qtdProduto, valorTotalProduto) VALUES (${idVenda}' , '${id_usuario}' , 2 , '${qtd_cv8kg}' , '${valorCarvao8kg}');
+        INSERT INTO Carrinho (fkVenda, fkUsuario, fkProduto, qtdProduto, valorTotalProduto) VALUES (${idVenda}' , '${id_usuario}' , 3 , '${qtd_cv4kg}' , '${valorCarvao4kg}');
+        INSERT INTO Carrinho (fkVenda, fkUsuario, fkProduto, qtdProduto, valorTotalProduto) VALUES (${idVenda}' , '${id_usuario}' , 4 , '${qtd_cv2kg}' , '${valorCarvao2kg}');
     `;
     console.log("usuario inserindo")
     console.log("Executando a instrução SQL: \n" + vendas);

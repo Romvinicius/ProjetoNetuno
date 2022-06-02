@@ -210,29 +210,63 @@ function reajusteEstoque(req, res) {
 }
 
 function venda(req, res) {
+    var valorAgua = req.body.valorAgua;
+    var valorCarvao8kg = req.body.valorCarvao8kg;
+    var valorCarvao4kg = req.body.valorCarvao4kg;
+    var valorCarvao2kg = req.body.valorCarvao2kg;
+    var qtd_ag = req.body.qtd_ag;
+    var qtd_cv8kg = req.body.qtd_cv8kg;
+    var qtd_cv4kg = req.body.qtd_cv4kg;
+    var qtd_cv2kg = req.body.qtd_cv2kg;
     var qtd_total = req.body.qtd_total;
-    var pix = req.body.pix;
+    var valor_total = req.body.valor_total;
     var id_usuario = req.body.id_usuario;
 
-    if (qtd_total == undefined) {
+    if (valorAgua == undefined) {
+        res.status(400).send("Seu valorAgua está undefined!")
+    } else if (valorCarvao8kg == undefined) {
+        res.status(400).send("Seu valorCarvao8kg está undefined!")
+    }else if (valorCarvao4kg == undefined) {
+        res.status(400).send("Sua valorCarvao4Kg está undefined!");
+    }else if (valorCarvao2kg == undefined) {
+        res.status(400).send("Sua valorCravao2Kg está undefined!");
+    }else if (qtd_ag == undefined) {
+        res.status(400).send("Sua span_qtd_agua está undefined!");
+    }else if (qtd_cv8kg == undefined) {
+        res.status(400).send("Sua span_qtd_carvao8Kg está undefined!");
+    }else if (qtd_cv4kg == undefined) {
+        res.status(400).send("Sua span_qtd_carvao4Kg está undefined!");
+    }else if (qtd_cv2kg == undefined) {
+        res.status(400).send("Sua span_qtd_carvao2Kg está undefined!");
+    } else if (qtd_total == undefined) {
         res.status(400).send("Sua Quantidade total está undefined!");
-    } else if (pix == undefined) {
+    } else if (valor_total == undefined) {
         res.status(400).send("Seu valor em Pix está undefined!")
     } else if (id_usuario == undefined) {
         res.status(400).send("Seu id_usuario está undefined!")
     } else {
         
-        usuarioModel.venda(qtd_total, pix, id_usuario)
+        usuarioModel.venda(valorAgua,valorCarvao8kg,valorCarvao4kg,valorCarvao2kg,qtd_ag,qtd_cv8kg,qtd_cv4kg,qtd_cv2kg,qtd_total, valor_total, id_usuario)
             .then(
-                function (resultado) {
-                    res.json(resultado);
-                    console.log("chegou aqui")
+                function (resposta) {
+                    res.json(resultado)
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+        
+                        usuarioModel.carrinho(json[1].idVenda)
+                        .then(function (resultado) {
+                            res.json(resultado)
+                        })
+                        console.log("chegou aqui")
+                    });
                 }
             ).catch(
                 function (erro) {
                     console.log(erro);
                     console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        "\nHouve um erro ao realizar a venda! Erro: ",
                         erro.sqlMessage
                     );
                     res.status(500).json(erro.sqlMessage);

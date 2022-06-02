@@ -9,7 +9,7 @@ var valorCarvao8kg;
 var valorCarvao4kg;
 var valorCarvao2kg;
 var valor_total;
-var pix;
+
 
 function aqui(){
 	
@@ -24,19 +24,14 @@ function aqui(){
 	valorCarvao4kg = qtd_cv4kg * 18.60;
 	valorCarvao2kg = qtd_cv2kg * 9.80;
 	valor_total = valorAgua + valorCarvao8kg + valorCarvao4kg + valorCarvao2kg;
-	pix = valor_total * 0.95
 
 	valor_agua.innerHTML = `R$ ${valorAgua.toFixed(2)}`
 	valor_carvao8kg.innerHTML = `R$ ${valorCarvao8kg.toFixed(2)}`
 	valor_carvao4kg.innerHTML = `R$ ${valorCarvao4kg.toFixed(2)}`
 	valor_carvao2kg.innerHTML = `R$ ${valorCarvao2kg.toFixed(2)}`
 	span_valor_total.innerHTML = `R$ ${valor_total.toFixed(2)}`
+	valor_pix.innerHTML = `R$ ${valor_total.toFixed(2)}`
 
-	if (valor_total >= 100) {
-		valor_pix.innerHTML = `R$ ${pix.toFixed(2)}`
-	} else {
-		valor_pix.innerHTML = `R$ ${valor_total.toFixed(2)}`
-	}
 
 	fetch("/usuarios/listar_Estoque", {
 		method: "GET",
@@ -84,7 +79,6 @@ const id_usuario = Number(sessionStorage.getItem("ID_USUARIO"));
 function finalizar(){
 
 	var qtd_totalVar = qtd_total
-	var pixVar = pix
 	var id_usuarioVar = id_usuario
 	if (qtd_total == 0) {
 	alert("Você deve escolher seus produtor para finalizar a compra")
@@ -141,10 +135,18 @@ function finalizar(){
 				"Content-Type": "application/json"
 			},
 			body: JSON.stringify({
-				
-				qtd_total: qtd_totalVar,
-				pix: pixVar,
-				id_usuario: id_usuarioVar
+
+				valorAgua: valorAgua,
+				valorCarvao8kg: valorCarvao8kg,
+				valorCarvao4kg: valorCarvao4kg,
+				valorCarvao2kg: valorCarvao2kg,
+				qtd_ag: qtd_ag,
+				qtd_cv8kg: qtd_cv8kg,
+				qtd_cv4kg: qtd_cv4kg,
+				qtd_cv2kg: qtd_cv2kg,
+				qtd_total: qtd_total,
+				valor_total: valor_total,
+				id_usuario: id_usuario
 	
 			})
 		}).then(function (resposta) {
@@ -159,7 +161,6 @@ function finalizar(){
 				}, "5000")
 			} else {
 				cardErro.style.display = "block"
-				mensagem_erro.innerHTML = "Email ja em uso! Tente outro novamente.";
 				setInterval(sumirMensagem, 5000);
 				finalizarAguardar();
 				throw ("Houve um erro ao tentar realizar o cadastro!");
