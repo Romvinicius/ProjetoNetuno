@@ -9,13 +9,12 @@ body {
 #header a {
     text-decoration: none;
     color: rgb(17, 65, 153); 
+ 
 }
 
 .paginas #agora{
     text-decoration: underline;
 }
-
-
 
 #header{
     display: flex;
