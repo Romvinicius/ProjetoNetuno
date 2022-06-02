@@ -67,19 +67,16 @@ function aqui(){
 			});
 
 		} else {
-
 			console.log("Houve um erro ao tentar realizar o login!");
 
 			resposta.text().then(texto => {
 				console.error(texto);
-			
 			});
 		}
 
 	}).catch(function (erro) {
 		console.log(erro);
 	})
-
 }
 
 window.onload = aqui;
@@ -126,7 +123,6 @@ function finalizar(){
 
 				resposta.text().then(texto => {
 					console.error(texto);
-			
 				});
 			}
 
@@ -145,8 +141,7 @@ function finalizar(){
 				"Content-Type": "application/json"
 			},
 			body: JSON.stringify({
-				// crie um atributo que recebe o valor recuperado aqui
-				// Agora vá para o arquivo routes/usuario.js
+				
 				qtd_total: qtd_totalVar,
 				pix: pixVar,
 				id_usuario: id_usuarioVar
@@ -159,15 +154,9 @@ function finalizar(){
 			if (resposta.ok) {
 				console.log("chegou aqui")
 				cardErro.style.display = "block";
-	
-				mensagem_erro.innerHTML = "Compra realizada com sucesso!";
-	
 				setTimeout(() => {
 					window.location = "./produto.html";
 				}, "5000")
-	
-	
-	
 			} else {
 				cardErro.style.display = "block"
 				mensagem_erro.innerHTML = "Email ja em uso! Tente outro novamente.";
@@ -178,28 +167,22 @@ function finalizar(){
 			}
 		})
 
-	
-
 		fetch("/usuarios/atualizacao", {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json"
 			},
 			body: JSON.stringify({
-				// crie um atributo que recebe o valor recuperado aqui
-				// Agora vá para o arquivo routes/usuario.js
+				
 				qtdEstoqueAguaServer: qtdEstoqueAgua,
 				qtdEstoqueCv8kgServer: qtdEstoqueCv8kg,
 				qtdEstoqueCv4kgServer: qtdEstoqueCv4kg,
 				qtdEstoqueCv2kgServer: qtdEstoqueCv2kg
-			
-
 			})
-		}).then(function (resposta) {
-		
-			console.log("resposta: ", resposta);
-			alert("Compra Realizada com sucesso!")
-		
+			}).then(function (resposta) {
+			
+				console.log("resposta: ", resposta);
+				alert("Compra Realizada com sucesso!")
 		})
 	
 		setTimeout(function () {

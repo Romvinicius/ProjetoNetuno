@@ -13,7 +13,6 @@
     display: flex;
     width: 90%;
     height: 90%;
-    
 }
 
 .relatorio {
@@ -51,7 +50,6 @@
     font-family: Roboto;
     align-items: center;
     margin: 0;
-
 }
 
 .div_qtd_valor {
@@ -65,7 +63,6 @@
 
 
 .div_agua {
-    
     display: flex;
     font-family: Roboto;
     height: 21.25%;
@@ -74,17 +71,13 @@
     border-bottom: 1px solid rgb(9, 31, 71);
 }
 
-
-
 .div_carvao8kg {
     display: flex;
     font-family: Roboto;
     height: 21.25%;
     border-bottom: 1px solid rgb(9, 31, 71);
     align-items: center;
-    
     justify-content: space-between;
-
 }
 
 .div_carvao4kg {
@@ -93,7 +86,6 @@
     height: 21.25%;
     border-bottom: 1px solid rgb(9, 31, 71);
     align-items: center;
-    
     justify-content: space-between;
 }
 
@@ -101,9 +93,7 @@
     display: flex;
     font-family: Roboto;
     height: 21.25%;
-
     align-items: center;
-   
     justify-content: space-between;
 }
 
@@ -111,7 +101,6 @@
     border-radius: 100%;
     width: 80px;
     height: 80px;
-    
 }
 
 .resumo {
@@ -142,8 +131,6 @@
 
 .qtd_valor{
     height: 21.25%;
-    
-
 }
 
 .qtd_valor .coluna{
@@ -180,13 +167,14 @@
     font-size: 30px;
     margin-left: 10px;
 }
+
 .avista .coluna2 {
     display: flex;
     height: 50%;
     width: 100%;
-   justify-content: center;
-   align-items: center;
-   font-size: 40px;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
 }
 
 .avista .coluna3{

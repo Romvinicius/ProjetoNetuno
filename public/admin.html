@@ -14,20 +14,15 @@
     <link rel="stylesheet" href="./css/admin.css">
     <link rel="stylesheet" href="./css/globais.css">
 
-    
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
 </head>
 <body onload="iniciarPagina(),receberProdutos()">
-     <!--Header-->
 
      <header id="header">
-        <div class="logo"><a href="./index.html"><img id="logo_netuno" src="./assets/icon/logo_Netuno_001.png"></a></div>
+        <div class="logo">
+            <a href="./index.html"><img id="logo_netuno" src="./assets/icon/logo_Netuno_001.png"></a>
+        </div>
         <div id="esse">               
-            <a href="./index.html"><li>Sair</li></a>
-            
+            <a href="./index.html"><li>Sair</li></a> 
         </div>  
         <div class="icones">
             <li><img id="icones_header" src="./assets/icon/sino.png"></li>
@@ -35,34 +30,30 @@
         </div>
     </header>
     
-    <!--Header-->
-<div class="banner">
-    <div class="container">
+    <div class="banner">
+        <div class="container">
 
-        <h1>Grafico de produtos</h1>
+            <h1>Grafico de produtos</h1>
 
-        <div class="selecao">
-            
-            <select id="select_produto">
+            <div class="selecao">
                 
-            </select>:
-            <input type="number" id="input_valor">
-            <button onclick="enviar()">
-                Enviar para Estoque
-            </button>
-           
+                <select id="select_produto">
+                    
+                </select>:
+                <input type="number" id="input_valor">
+                <button onclick="enviar()">
+                    Enviar para Estoque
+                </button>
 
-        </div>
-        <div class="containerGrafico">
-            <div class="grafico1">
-                <canvas id="myChart"></canvas>
             </div>
-            
-        </div>
-    </div>   
+            <div class="containerGrafico">
+                <div class="grafico1">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </div>   
 
-</div>
-    <!--footer inicio-->
+    </div>
     <div class="footer">
         <div class="footer_endereco">
             <li><img id="icone_endereco" src="./assets/icon/icone_endereco.png">
@@ -75,14 +66,9 @@
         </div>
         <div class="footer_contato">
             <li><img src="./assets/icon/icone_whats.png"><span>(11) 99665-7516</span></li>
-            
-            <li><img src="./assets/icon/icone_email.png"><span>distribuidora_netuno@gmail.com</span></li>
-            
+            <li><img src="./assets/icon/icone_email.png"><span>distribuidora_netuno@gmail.com</span></li>  
         </div>
-
     </div>
-    <!--footer fim-->
-
 </body>
 </html>
 

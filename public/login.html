@@ -13,16 +13,9 @@
     <link rel="icon" href="./assets/icon/logo_Netuno_001.png">
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/globais.css">
-    
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
 </head>
 
 <body>
-
-    <!--Header-->
 
     <header id="header">
         <div class="logo"><a href="./index.html"><img id="logo_netuno" src="./assets/icon/logo_Netuno_001.png"></a></div>
@@ -37,8 +30,6 @@
             <li><img id="icones_header" src="./assets/icon/carrinho.png"></li>    
         </div>
     </header>
-    
-    <!--Header-->
 
     <div class="banner">
         <div class="alerta_erro">
@@ -50,8 +41,6 @@
             <div class="card">
                 <h2>Olá de volta!</h2>
                 <div class="formulario">
-
-
                     <span class="tipo_campo">E-mail:</span>
                     <input id="email_input" type="text" placeholder="Login">
 
@@ -61,21 +50,14 @@
                     <button class="btn" onclick="entrar()">Entrar</button>
 
                     <li>Não cadastrado ? <a href="./cadastro.html"><span>Cadastre-se</span></a> </li>
-
                 </div>
-
                 <div id="div_aguardar" class="loading-div">
                     <img src="./assets/circle-loading.gif" id="loading-gif">
                 </div>
-
-                <div id="div_erros_login">
-
-                </div>
+                <div id="div_erros_login"></div>
             </div>
         </div>
     </div>
-
-    <!--footer inicio-->
     <div class="footer">
         <div class="footer_endereco">
             <li><img id="icone_endereco" src="./assets/icon/icone_endereco.png">
@@ -88,16 +70,10 @@
         </div>
         <div class="footer_contato">
             <li><img src="./assets/icon/icone_whats.png"><span>(11) 99665-7516</span></li>
-            
             <li><img src="./assets/icon/icone_email.png"><span>distribuidora_netuno@gmail.com</span></li>
-            
         </div>
-
     </div>
-    <!--footer fim-->
-
 </body>
-
 </html>
 
 <script>
@@ -121,14 +97,13 @@
 
         if (emailVar == "admin" && senhaVar == "adminNetuno") {
             setTimeout(function () {
-                        window.location = "./admin.html";
-                    }, 1000);
+                window.location = "./admin.html";
+            }, 1000);
         }
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
         
-
         fetch("/usuarios/autenticar", {
             method: "POST",
             headers: {
@@ -157,7 +132,6 @@
                     setTimeout(function () {
                         window.location = "./produto.html";
                     }, 1000); // apenas para exibir o loading
-
                 });
 
             } else {

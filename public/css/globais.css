@@ -9,7 +9,6 @@ body {
 #header a {
     text-decoration: none;
     color: rgb(17, 65, 153); 
- 
 }
 
 .paginas #agora{
@@ -105,20 +104,16 @@ body {
     flex-direction: column;
 }
 
-
-
 .footer_contato li{
     padding: 23px 0px 0px 30px;
 }
 
 .footer_contato span{
-    padding-left: 10px;
-    
+    padding-left: 10px;  
 }
 
 .footer .footer_endereco{
-    width: 33%;
-    
+    width: 33%;  
 }
 
 .footer_endereco li {

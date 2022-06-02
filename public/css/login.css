@@ -20,139 +20,136 @@
 }
 
 .banner .container .card {
-    background-color: rgba(255, 255, 255, 0.432);
-    height: fit-content;
-    border: 1px solid rgb(9, 31, 71);
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    color: rgb(2, 50, 70);
-    font-family: Roboto;
-    font-weight: 800;
-    align-items: center;
-    border-radius: 4px;
-  }
+  background-color: rgba(255, 255, 255, 0.432);
+  height: fit-content;
+  border: 1px solid rgb(9, 31, 71);
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  color: rgb(2, 50, 70);
+  font-family: Roboto;
+  font-weight: 800;
+  align-items: center;
+  border-radius: 4px;
+}
 
-  .card li {
-    padding-top: 10px;
-    list-style: none;
-    text-align: center;
-  }
+.card li {
+  padding-top: 10px;
+  list-style: none;
+  text-align: center;
+}
 
-  .card li span {
-    text-decoration: underline;
-  }
+.card li span {
+  text-decoration: underline;
+}
   
-  .card {
-    display: flex;
-    justify-content: space-around;
-  }
+.card {
+  display: flex;
+  justify-content: space-around;
+}
   
-  .card h2 {
-    font-size: 35px;
-    font-weight: bold;
-  }
+.card h2 {
+  font-size: 35px;
+  font-weight: bold;
+}
   
-  .card h4 {
-    font-size: 16px;
-  }
+.card h4 {
+  font-size: 16px;
+}
   
-  .banner #div_erros_login {
-    margin-top: 15px;
-  }
+.banner #div_erros_login {
+  margin-top: 15px;
+}
   
-  button {
-    cursor: pointer;
-    
-  }
+button {
+  cursor: pointer;  
+}
 
-  .formulario a{
-    text-decoration: none;
-    color: rgb(9, 31, 71);
-  }
+.formulario a{
+  text-decoration: none;
+  color: rgb(9, 31, 71);
+}
 
 
-  .alerta_erro{
-    display: flex;
-    justify-content: flex-end;
-  }
+.alerta_erro{
+  display: flex;
+  justify-content: flex-end;
+}
   
-  .card_erro {
-    display: none;
-    background-color: #fff;
-    color: black;
-    width: 230px;
-    position: fixed;
-    border-radius: 4px;
-    border: rgb(9, 31, 71) 3px solid;
-    padding: 10px;
-    margin-right: 10%;
-  }
+.card_erro {
+  display: none;
+  background-color: #fff;
+  color: black;
+  width: 230px;
+  position: fixed;
+  border-radius: 4px;
+  border: rgb(9, 31, 71) 3px solid;
+  padding: 10px;
+  margin-right: 10%;
+}
   
-  .card_erro #mensagem_erro{
-    font-weight: 500;
-    font-size: 20px;
-  }
+.card_erro #mensagem_erro{
+  font-weight: 500;
+  font-size: 20px;
+}
   
-  .formulario .tipo_campo {
-    font-size: 20px;
-   
-  }
-  
-  .formulario {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  input {
-    margin-bottom: 10px;
-    padding: 10px;
-    text-align: center;
-    border: none;
-    border-bottom: 2px solid rgb(2, 50, 70);
-    background-color: transparent;
-    outline: 0;
-    transition: 400ms;
-    height: 10px;
-  }
+.formulario .tipo_campo {
+  font-size: 20px; 
+}  
 
-  input:focus{
-    border-bottom: 2px solid black;
-    border-radius: 3px;
-    background-color:rgba(2, 50, 70, 0.233) ;
-    color: white;
-
-  }
-
-  input::placeholder{
-    color: rgba(0, 0, 0, 0.466);
-  }
+.formulario {
+  display: flex;
+  flex-direction: column;
+}
   
-  .btn {
-    font-family: Roboto;
-    border: 0;
-    border-radius: 5px;
-    font-size: 18px;
-    padding: 10px 15px;
-    color: white;
-    background-color: rgb(2, 50, 70);
-    width: 120px;
-    align-self: center;
-    margin-top: 5px;
-  }
+input {
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid rgb(2, 50, 70);
+  background-color: transparent;
+  outline: 0;
+  transition: 400ms;
+  height: 10px;
+}
 
-  .btn:hover {
-    transition: all 0.5s;
-    transform: scale(1.1);
-  }
+input:focus{
+  border-bottom: 2px solid black;
+  border-radius: 3px;
+  background-color:rgba(2, 50, 70, 0.233) ;
+  color: white;
+}
+
+input::placeholder{
+  color: rgba(0, 0, 0, 0.466);
+}
   
-  .loading-div {
-    width: 50px;
-    margin: auto;
-    display: none;
-  }
+.btn {
+  font-family: Roboto;
+  border: 0;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 10px 15px;
+  color: white;
+  background-color: rgb(2, 50, 70);
+  width: 120px;
+  align-self: center;
+  margin-top: 5px;
+}
+
+.btn:hover {
+  transition: all 0.5s;
+  transform: scale(1.1);
+}
   
-  .loading-div img {
-    height: 50px;
-    width: 50px;
-  }
+.loading-div {
+  width: 50px;
+  margin: auto;
+  display: none;
+}
+  
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}

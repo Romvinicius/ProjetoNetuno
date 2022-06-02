@@ -1,112 +1,106 @@
 @import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
 
 .banner {
-    display: flex;
-    background-size: cover;
-    height: 90vh;
-    flex-direction: column;
-    background-image: url(../assets/imgs/marFiltro.png);
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  background-size: cover;
+  height: 90vh;
+  flex-direction: column;
+  background-image: url(../assets/imgs/marFiltro.png);
+  justify-content: center;
+  align-items: center;
 }
 
-
-
 .banner .container #frase_maior {
-    font-family: Roboto; 
-    font-weight: bold;
-    color: white;     
+  font-family: Roboto; 
+  font-weight: bold;
+  color: white;     
 }
 
 .banner .container h1 {
-   margin: 0;
+  margin: 0;
   font-size: 40px;   
 }
 
 .banner .container h6 {
-    margin: 0;
-    margin-top: 10px;
-    
+  margin: 0;
+  margin-top: 10px; 
 }
 
 .banner .container #frase_menor {
-    font-family: Roboto;
-    font-weight: bold;
-    color: white;
-    
-    
+  font-family: Roboto;
+  font-weight: bold;
+  color: white;
 }
 
 .banner .container{
-    display: flex;
-    width: 1000px;
-    height: 300px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  width: 1000px;
+  height: 300px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #peca_ja{
   color: white;
-    height: 50px;
-    width: 150px;
-    border-radius: 7px;
-    align-items: center;
-    font-family: Roboto;
-    font-size: large;
-    font-weight: bold;
-    border: 2px solid white;
-    background-color: rgba(255, 255, 255, 0.1);
-    margin-top: 30px;
-    cursor: pointer;
+  height: 50px;
+  width: 150px;
+  border-radius: 7px;
+  align-items: center;
+  font-family: Roboto;
+  font-size: large;
+  font-weight: bold;
+  border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-top: 30px;
+  cursor: pointer;
 }
 
 #peca_ja:hover {
-    transform: scale(1.1);
-    transition: all 0.5s;
-    font-family: Roboto;
-    font-weight: bold;
-    font-size: large;
-    background-color: transparent;
+  transform: scale(1.1);
+  transition: all 0.5s;
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: large;
+  background-color: transparent;
   } 
 
 .agora {
-    text-decoration: dotted
+  text-decoration: dotted
 }
 
 
-  .social {
-    background-color: #e5e5e5;
-    display: flex;
-  }
+.social {
+  background-color: #e5e5e5;
+  display: flex;
+}
   
-  .social .container{
-    justify-content: center;
-  }
+.social .container{
+  justify-content: center;
+}
   
-  .box img {
-    width: 170px;
-  }
+.box img {
+  width: 170px;
+}
   
-  .social .container .boxes {
-    display: flex;
-  }
+.social .container .boxes {
+  display: flex;
+}
   
-  .social p {
-    text-align: center;
-  }
+.social p {
+  text-align: center;
+}
   
-  .box {
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.box {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
   
-  
-  .box {
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.box {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -55,8 +55,6 @@
 .banner .produto .navbar_baixo {
     margin: 5% 5% 0% 5%;    
     display: flex;
-    
-    
     width: 90%;
     height: 15%;
     margin-top: 10%;
@@ -78,9 +76,7 @@ li {
 .banner .produto .produto_titulo{
     display: flex;
     height: 15%;
-    
     margin-top: 10%;
-    
 }
 
 .produto_titulo h3 {

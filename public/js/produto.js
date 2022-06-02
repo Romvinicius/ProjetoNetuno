@@ -58,21 +58,20 @@ function Estoque(){
                     maisQtdAgua.onclick = ""
                   } 
                 
-                  if (qtdEstoqueCv8kgProduto <= 0) {
+                if (qtdEstoqueCv8kgProduto <= 0) {
                     span_acabou_cv8kg.style.display = "block";
                     maisQtdCv8kg.onclick = ""
                   } 
                 
-                  if (qtdEstoqueCv4kgProduto <= 0) {
+                if (qtdEstoqueCv4kgProduto <= 0) {
                     span_acabou_cv4kg.style.display = "block";
                     maisQtdCv4kg.onclick = ""
                   } 
                 
-                  if (qtdEstoqueCv2kgProduto <= 0) {
+                if (qtdEstoqueCv2kgProduto <= 0) {
                     span_acabou_cv2kg.style.display = "block"
                     maisQtdCv2kg.onclick = ""
                   } 
-                
 			});
 
 		} else {
@@ -88,23 +87,14 @@ function Estoque(){
 	}).catch(function (erro) {
 		console.log(erro);
 	})
-
-    
-
 }
 
 window.onload = Estoque;
-
-
-
-
 
 var qtd_agua = 0
 var qtd_carvao8kg = 0
 var qtd_carvao4kg = 0
 var qtd_carvao2kg = 0
-
-
 
 function menos_qtd_agua() {
     esse = Number(span_qtd_agua.innerHTML)
@@ -118,7 +108,6 @@ function menos_qtd_agua() {
         span_acabou_agua.style.display = "none";
         
     }
-
 }
 
 function mais_qtd_agua() {
@@ -133,7 +122,6 @@ function mais_qtd_agua() {
         qtd_agua++
         span_qtd_agua.innerHTML = qtd_agua
     }
-
 }
 
 
@@ -148,24 +136,20 @@ function menos_qtd_carvao8kg() {
     if (esse <= acabou_cv8kg) {
         span_acabou_cv8kg.style.display = "none";
     }
-
 }
 
 function mais_qtd_carvao8kg() {
     esse = Number(span_qtd_carvao8kg.innerHTML)
     
-
     if (esse >= acabou_cv8kg) {
         span_acabou_cv8kg.style.display = "block";
         span_acabou_cv8kg.innerHTML = `Temos apenas ${acabou_cv8kg} produtos`
         console.log(acabou_cv8kg)
-        
     }  else {
         span_acabou_cv8kg.style.display = "none";
         qtd_carvao8kg++
         span_qtd_carvao8kg.innerHTML = qtd_carvao8kg
     }
-
 }
 
 function menos_qtd_carvao4kg() {
@@ -184,7 +168,6 @@ function menos_qtd_carvao4kg() {
 function mais_qtd_carvao4kg() {
     esse = Number(span_qtd_carvao4kg.innerHTML)
     
-
     if (esse >= acabou_cv4kg) {
         span_acabou_cv4kg.style.display = "block";
         span_acabou_cv4kg.innerHTML = `Temos apenas ${acabou_cv4kg} produtos`
@@ -213,7 +196,6 @@ function menos_qtd_carvao2kg() {
 function mais_qtd_carvao2kg() {
     esse = Number(span_qtd_carvao2kg.innerHTML)
     
-
     if (esse >= acabou_cv2kg) {
         span_acabou_cv2kg.style.display = "block";
         span_acabou_cv2kg.innerHTML = `Temos apenas ${acabou_cv2kg} produtos`

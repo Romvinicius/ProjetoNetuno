@@ -1,4 +1,4 @@
-// sessão
+
 function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
@@ -9,8 +9,6 @@ function validarSessao() {
             h1LoginUsuario.innerHTML = email;
         }
         b_usuario.innerHTML = nome;
-
-
     } else {
         window.location = "../login.html";
     }

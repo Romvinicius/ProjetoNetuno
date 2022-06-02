@@ -4,6 +4,7 @@ var acabou_agua;
 var acabou_cv8kg;
 var acabou_cv4kg;
 var acabou_cv2kg;
+var maiorEstoque;
 
 function iniciarPagina() {
   fetch("/usuarios/listar_Estoque", {
@@ -28,11 +29,14 @@ function iniciarPagina() {
         for (var i = 0; i < json.length; i++) {
           fkProdutos.push(json[i].fkProduto)
           qtdEstoques.push(json[i].qtdEstoque)
-        }
-
+      
+          if(qtdEstoques[i] > maiorEstoque){
+            maiorEstoque = qtdEstoques[i]
+          }
+        } 
+        
         sessionStorage.FK_PRODUTOS = fkProdutos;
         sessionStorage.QTD_ESTOQUE = qtdEstoques;
-
 
         var qtdEstoqueAguaProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[0])
         var qtdEstoqueCv8kgProduto = Number(sessionStorage.getItem("QTD_ESTOQUE").split(',')[1])
@@ -48,10 +52,6 @@ function iniciarPagina() {
         acabou_cv8kg = sessionStorage.getItem("Qtd_Estoque_Cv8kgProduto")
         acabou_cv4kg = sessionStorage.getItem("Qtd_Estoque_Cv4kgProduto")
         acabou_cv2kg = sessionStorage.getItem("Qtd_Estoque_Cv2kgProduto")
-
-        console.log(acabou_agua)
-
-
       });
 
     } else {
@@ -67,14 +67,7 @@ function iniciarPagina() {
   }).catch(function (erro) {
     console.log(erro);
   })
-
-  
-
-
-
-
 }
-
 
 function enviar() {
   var quantidade = Number(input_valor.value)
@@ -106,7 +99,6 @@ function enviar() {
   }
   console.log(cv8kg_para_estoque)
 
-
   fetch("/usuarios/reajusteEstoque", {
     method: "PUT",
     headers: {
@@ -130,8 +122,6 @@ function enviar() {
   setTimeout(function () {
     window.location = "./admin.html";
   }, 1000);
-
-
 }
 
 function receberProdutos() {
@@ -155,12 +145,10 @@ function receberProdutos() {
         for (var i = 0; i < json.length; i++) {
 
           var recebimento = json[i]
-          console.log(recebimento.idProduto)
           select_produto.innerHTML += `<option value="${recebimento.idProduto}">${recebimento.nome}</option>`
           labels.push(recebimento.nome)
         }
 
-        console.log(labels)
         const data = {
           labels: labels,
           datasets: [{
@@ -169,10 +157,7 @@ function receberProdutos() {
             borderColor: 'black',
             data: [acabou_agua, acabou_cv8kg, acabou_cv4kg, acabou_cv2kg],
             fill: true,
-          }
-
-          ]
-
+          }]
         };
 
         const config = {
@@ -187,25 +172,21 @@ function receberProdutos() {
                 }
               }
             },
-
             scales: {
-
               y: {
                 beginAtZero: true,
-                max: 300,
+                max: maiorEstoque,
                 ticks: {
                   color: 'black'
                 },
                 grid: {
                   color: 'black'
                 },
-
               },
               x: {
                 grid: {
                   color: 'black'
                 },             
-
               },
 
             },
@@ -221,7 +202,6 @@ function receberProdutos() {
           document.getElementById('myChart'),
           config
         );
-
       });
 
     } else {
@@ -233,7 +213,6 @@ function receberProdutos() {
 
       });
     }
-
   }).catch(function (erro) {
     console.log(erro);
   })

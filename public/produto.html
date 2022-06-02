@@ -6,17 +6,15 @@
 
     <title>Netuno | Seleção</title>
 
+    <script src="js/produto.js"></script>
+
     <link rel="icon" href="./assets/icon/logo_Netuno_001.png">
     <link rel="stylesheet" href="./css/produto.css">
     <link rel="stylesheet" href="./css/globais.css">
-    <script src="js/produto.js"></script>
-   
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    
+
 <body>
-     <!--header inicio-->
+
      <header id="header">
         <div class="logo"><a href="./index.html"><img id="logo_netuno" src="./assets/icon/logo_Netuno_001.png"></a></div>
         <div id="esse">               
@@ -27,14 +25,11 @@
             <li><a href="./carrinho.html"><img id="icones_header" src="./assets/icon/carrinho.png"></li></a>
         </div>
     </header>
-    <!--header fim-->
 
     <div class="banner">
         <ul class="produtos_container">
             <div class="produto">
-                <div class="navbar">
-                    <img id="agua" src="./assets/imgs/bioleve.png" alt="">
-                </div>
+                <div class="navbar"><img id="agua" src="./assets/imgs/bioleve.png" alt=""></div>
                 <div class="produto_titulo"><h3>Galão de agua - 20L (Bioleve)</h3></div>
                 <li id="span_acabou_agua" class="acabou_agua"><span>Produto sem estoque</span></li>
                 <div class="navbar_baixo">
@@ -44,9 +39,7 @@
                 </div>
             </div>
             <div class="produto">
-                <div class="navbar">
-                    
-                </div>
+                <div class="navbar"></div>
                 <div class="produto_titulo"><h3>Carvão Vegetal - 8Kg (Brazuca)</h3></div>
                 <li id="span_acabou_cv8kg" class="acabou_cv8kg"><span>Produto sem estoque</span></li>
                 <div class="navbar_baixo">
@@ -56,21 +49,17 @@
                 </div>
             </div>
             <div class="produto">
-                <div class="navbar">
-                   
-                </div>
+                <div class="navbar"></div>
                 <div class="produto_titulo"><h3>Carvão Vegetal - 4Kg (Brazuca)</h3></div>
                 <li id="span_acabou_cv4kg" class="acabou_cv4kg"><span>Produto sem estoque</span></li>
                 <div class="navbar_baixo">
                     <li><img onclick="menos_qtd_carvao4kg()" src="./assets/icon/icone_retira.png"></li>
-                    <li> <span id="span_qtd_carvao4kg">0</span></li>
+                    <li><span id="span_qtd_carvao4kg">0</span></li>
                     <li onclick="mais_qtd_carvao4kg()" id="maisQtdCv4kg"><img src="./assets/icon/icone_adiciona.png" alt=""></li>
                 </div>
             </div>
             <div class="produto">
-                <div class="navbar">
-                    
-                </div>
+                <div class="navbar"></div>
                 <div class="produto_titulo"><h3>Carvão Vegetal - 2Kg (Brazuca)</h3></div>
                 <li id="span_acabou_cv2kg" class="acabou_cv2kg"><span>Produto sem estoque</span></li>
                 <div class="navbar_baixo">
@@ -79,9 +68,7 @@
                     <li onclick="mais_qtd_carvao2kg()" id="maisQtdCv2kg"><img src="./assets/icon/icone_adiciona.png" alt=""></li>
                 </div>
             </div>
-            
         </ul>    
-        
         <div class="btn_add_carrinho">
             <button onclick="adicionar()" id="add_carrinho">
                 Adionar carrinho
@@ -89,10 +76,6 @@
         </div>
     </div>
 
-    
-   
-
-    <!--footer inicio-->
     <div class="footer">
         <div class="footer_endereco">
             <li><img id="icone_endereco" src="./assets/icon/icone_endereco.png">
@@ -105,14 +88,9 @@
         </div>
         <div class="footer_contato">
             <li><img src="./assets/icon/icone_whats.png"><span>(11) 99665-7516</span></li>
-            
             <li><img src="./assets/icon/icone_email.png"><span>distribuidora_netuno@gmail.com</span></li>
-            
         </div>
-
     </div>
-    <!--footer fim-->
-
 </body>
 </html>
 

@@ -1,52 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 .banner {
-    display: flex;
-    background-size: cover;
-    height: 110vh;
-    flex-direction: column;
-    background-image: url(../assets/imgs/marFiltro.png);
-    
-    
-    
-  }
+  display: flex;
+  background-size: cover;
+  height: 110vh;
+  flex-direction: column;
+  background-image: url(../assets/imgs/marFiltro.png);
+}
 
-  .banner .container {
-    
-        display: flex;
-        flex-direction: column;
-        width: 65%;
-        height: 65%;
-        margin: 8% 0% 0% 17%;
-        background-color: #e5e5e527;
-        border-radius: 5px;
-        border: 3px solid white;
-        align-items: center;
-        
+.banner .container {   
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  height: 65%;
+  margin: 8% 0% 0% 17%;
+  background-color: #e5e5e527;
+  border-radius: 5px;
+  border: 3px solid white;
+  align-items: center;      
+}
 
-  }
+h1 {
+    margin: 0;
+}
 
-  h1 {
-      margin: 0;
-  }
+.container .titulo {
+  color: white;
+  font-family: Roboto;
+  border-bottom: 2px solid white;
+  margin-top: 15px;   
+}
 
-  .container .titulo {
-      color: white;
-      font-family: Roboto;
-      border-bottom: 2px solid white;
-      margin-top: 15px;
-      
-  }
-  
-
-  .container .texto {
-    color: white;
-    margin-top: 90px;
-    font-family: Roboto;
-    font-weight: 1000;
-    font-size: larger;
-    line-height: 30px;
-    width: 85%;
-    height: 72%;
-  }
+.container .texto {
+  color: white;
+  margin-top: 90px;
+  font-family: Roboto;
+  font-weight: 1000;
+  font-size: larger;
+  line-height: 30px;
+  width: 85%;
+  height: 72%;
+}
   

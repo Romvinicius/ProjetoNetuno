@@ -17,135 +17,131 @@
 }
 
 .banner .container .card {
-    background-color:  rgba(255, 255, 255, 0.432);
-    border: 1px solid rgb(9, 31, 71);
-    height: fit-content;
-    width: 700px;
-    display: flex;
-    flex-direction: column;
-    color: rgb(2, 50, 70);
-    font-family: Roboto;
-    align-items: center;
-    border-radius: 4px;
-  }
+  background-color:  rgba(255, 255, 255, 0.432);
+  border: 1px solid rgb(9, 31, 71);
+  height: fit-content;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  color: rgb(2, 50, 70);
+  font-family: Roboto;
+  align-items: center;
+  border-radius: 4px;
+}
   
+.card {
+  display: flex;
+  justify-content: space-around; 
+}
   
-  .card {
-    display: flex;
-    justify-content: space-around;
-    
-  }
+.card h2 {
+  font-size: 30px;
+}
   
-  .card h2 {
-    font-size: 30px;
-  }
+.card h4 {
+  font-size: 16px;
+}
   
-  .card h4 {
-    font-size: 16px;
-  }
+.banner #div_erros_login {
+  margin-top: 15px;
+}
   
-  .banner #div_erros_login {
-    margin-top: 15px;
-  }
-  
-  button {
-    cursor: pointer;
-  }
+button {
+  cursor: pointer;
+}
 
 
-  .alerta_erro{
-    display: flex;
-    justify-content: flex-end;
-  }
+.alerta_erro{
+  display: flex;
+  justify-content: flex-end;
+}
   
-  .card_erro {
-    display: none;
-    background-color: #fff;
-    color: black;
-    width: 230px;
-    position: fixed;
-    border-radius: 3px;
-    border: rgb(2, 50, 70) 3px solid;
-    padding: 10px;
-    margin-right: 10%;
-  }
+.card_erro {
+  display: none;
+  background-color: #fff;
+  color: black;
+  width: 230px;
+  position: fixed;
+  border-radius: 3px;
+  border: rgb(2, 50, 70) 3px solid;
+  padding: 10px;
+  margin-right: 10%;
+}
   
-  .card_erro #mensagem_erro{
-    font-weight: 500;
-    font-size: 20px;
-  }
+.card_erro #mensagem_erro{
+  font-weight: 500;
+  font-size: 20px;
+}
   
-  .formulario {
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-  }
+.formulario {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
   
-  .formulario .tipo_campo {
-    font-size: 15px;
-    font-weight: 700;
-    
-  }
+.formulario .tipo_campo {
+  font-size: 15px;
+  font-weight: 700;  
+}
   
-  .formulario .formulario_campos{
-    display: flex;
-    flex-direction: column;
-    padding-left: 20px;
-    
-  }
+.formulario .formulario_campos{
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;  
+}
 
-  #esseaqui{
-    display: flex;
-  }
+#esseaqui{
+  display: flex;
+}
   
-  input {
-    height: 15px;
-    margin-bottom: 10px;
-    padding: 10px;
-    text-align: center;
-    border: none;
-    border-bottom: 2px solid rgb(2, 50, 70);
-    background-color: transparent;
-    outline: 0;
-    transition: 400ms;
-  }
+input {
+  height: 15px;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid rgb(2, 50, 70);
+  background-color: transparent;
+  outline: 0;
+  transition: 400ms;
+}
 
-  input:focus{
-    border-bottom: 2px solid black;
-    border-radius: 3px;
-    background-color:rgba(2, 50, 70, 0.233) ;
-    color: white;
-  }
+input:focus{
+  border-bottom: 2px solid black;
+  border-radius: 3px;
+  background-color:rgba(2, 50, 70, 0.233) ;
+  color: white;
+}
 
-  input::placeholder{
-    color: rgba(0, 0, 0, 0.466);
-  }
+input::placeholder{
+  color: rgba(0, 0, 0, 0.466);
+}
   
-  .btn {
-    font-family: Roboto;
-    border: 0;
-    border-radius: 5px;
-    font-size: 18px;
-    padding: 10px 15px;
-    color: white;
-    background-color: rgb(2, 50, 70);
-    width: 120px;
-    align-self: center;
-    margin-top: 50px;
-  }
+.btn {
+  font-family: Roboto;
+  border: 0;
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 10px 15px;
+  color: white;
+  background-color: rgb(2, 50, 70);
+  width: 120px;
+  align-self: center;
+  margin-top: 50px;
+}
 
-  .btn:hover {
-    transition: all 0.5s;
-    transform: scale(1.1);
-  }
+.btn:hover {
+  transition: all 0.5s;
+  transform: scale(1.1);
+}
   
-  .loading-div {
-    width: 50px;
-    margin: auto;
-    display: none;
-  }
+.loading-div {
+  width: 50px;
+  margin: auto;
+  display: none;
+}
   
-  .loading-div img {
-    height: 50px;
-    width: 50px;
-  }
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}

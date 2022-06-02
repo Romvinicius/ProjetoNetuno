@@ -1,18 +1,17 @@
 var mysql = require("mysql2");
 var sql = require('mssql');
 
-// CONEXÃO DO MYSQL WORKBENCH (LOCAL)
 var mySqlConfig = {
     host: "localhost",
-    user: "root",
+    user: "aluno",
     port:  3306,
     database: "ProjetoNetuno",
-    password: "Vinicius&gabi28",
+    password: "sptech",
     multipleStatements: true
 };
 
 function executar(instrucao) {
-    // VERIFICA A VARIÁVEL DE AMBIENTE SETADA EM app.js
+
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         return new Promise(function (resolve, reject) {
             sql.connect(sqlServerConfig).then(function () {
