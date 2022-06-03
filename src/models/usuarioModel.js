@@ -96,7 +96,15 @@ function receberProdutos() {
 
 function receberCarrinho() {
     var instrucao = `
-    SELECT fkProduto ,SUM(valorDesconto) FROM carrinho GROUP BY fkProduto;
+    SELECT fkProduto ,SUM(valorDesconto) AS valor FROM carrinho GROUP BY fkProduto;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function somaQtd() {
+    var instrucao = `
+    SELECT Produto.nome, fkProduto, SUM(qtdProduto) AS resultado FROM carrinho JOIN Produto ON idProduto = fkProduto GROUP BY fkProduto;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -113,6 +121,7 @@ module.exports = {
     reajusteEstoque,
     receberProdutos,
     carrinho,
-    receberCarrinho
+    receberCarrinho,
+    somaQtd
     
 };

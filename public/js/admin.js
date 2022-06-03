@@ -219,7 +219,8 @@ function receberProdutos() {
 
 }
 
-var data = [];
+
+var valorCarrinho = [];
 
 function totalVenda(){
 
@@ -240,9 +241,10 @@ function totalVenda(){
         console.log(JSON.stringify(resposta));
 
         for (var i = 0; i < resposta.length; i++) {
-          var recebimento = resposta[i]
-          data.push(recebimento[i])
+          var recebimento = resposta[i].valor
+          valorCarrinho.push(recebimento)
         }
+       renderizarGrafico()
       });
 
     } else {
@@ -257,20 +259,28 @@ function totalVenda(){
   }).catch(function (erro) {
     console.log(erro);
   })
+  
+}
+
+function renderizarGrafico(){
 
   const data2 = {
     labels: [
-      'Red',
-      'Blue',
-      'Yellow'
+      'Galão 20L',
+      'Carvão 8KG',
+      'Carvão 4KG',
+      'Carvão 2KG'
     ],
     datasets: [{
-      label: 'My First Dataset',
-    
+      label: 'Grafico de Valores',
+      data: 
+       valorCarrinho
+      ,
       backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)'
+        'Blue',
+        'Red',
+        'Orange',
+        'Gray'
       ],
       hoverOffset: 4
     }]
@@ -285,6 +295,81 @@ function totalVenda(){
     document.getElementById('myChart2'),
     config2
   );
+
 }
+
+var qtdProdutos = []
+var nomeProdutos = []
+
+
+var resposta1 = []
+
+
+
+function maisVendidos(){
+
+  fetch("/usuarios/somaQtd", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    },
+
+  }).then(function (resposta) {
+    console.log("ESTOU NO THEN DO somaQtd()!")
+
+    if (resposta.ok) {
+      console.log(resposta);
+
+      resposta.json().then(resposta => {
+        console.log(resposta);
+        console.log(JSON.stringify(resposta));
+        resposta1 = resposta
+
+        for (var i = 0; i < resposta.length; i++) {
+          var recebimento = resposta[i].resultado
+
+          qtdProdutos.push(recebimento)
+
+        }
+       
+        ranking()
+        
+      });
+
+    } else {
+
+      console.log("Houve um erro ao tentar realizar o somaQtd!");
+
+      resposta.text().then(texto => {
+        console.error(texto);
+
+      });
+    }
+  }).catch(function (erro) {
+    console.log(erro);
+  })
+}
+
+function ranking(){
+  resposta1.sort(function (x, y){
+    return x.resultado - y.resultado
+  })
+
+  span_qtd_primeiro.innerHTML = resposta1[3].resultado
+  span_primeiro.innerHTML = resposta1[3].nome
+
+  span_qtd_segundo.innerHTML = resposta1[2].resultado
+  span_segundo.innerHTML = resposta1[2].nome
+
+  span_qtd_terceiro.innerHTML = resposta1[1].resultado
+  span_terceiro.innerHTML = resposta1[1].nome
+
+  span_qtd_quarto.innerHTML = resposta1[0].resultado
+  span_quarto.innerHTML = resposta1[0].nome
+
+}
+
+
+
 
 

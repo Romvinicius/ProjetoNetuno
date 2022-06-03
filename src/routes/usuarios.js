@@ -47,6 +47,10 @@ router.get("/receberCarrinho", function (req, res) {
     usuarioController.receberCarrinho(req, res);
 });
 
+router.get("/somaQtd", function (req, res) {
+    usuarioController.somaQtd(req, res);
+});
+
 
 
 module.exports = router;
