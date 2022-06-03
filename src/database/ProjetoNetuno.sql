@@ -13,8 +13,6 @@ numero int,
 complemento varchar(45)
 );
 
-select * from usuario;
-
 create table Venda (
 idVenda int auto_increment,
 totalProdutos varchar(45),
@@ -54,8 +52,8 @@ create table Carrinho (
 fkVenda int, foreign key (fkVenda) references Venda (idVenda),
 fkUsuario int, foreign key (fkUsuario) references usuario (idUsuario),
 fkProduto int, foreign key (fkProduto) references Produto (idProduto),
-valorDesconto varchar(45),
-qtdProduto varchar(45),
+valorDesconto decimal(10,2),
+qtdProduto int,
 primary key (fkVenda, fkUsuario, fkProduto)
 );
 

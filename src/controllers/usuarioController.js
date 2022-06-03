@@ -210,6 +210,40 @@ function reajusteEstoque(req, res) {
 }
 
 function venda(req, res) {
+    
+    var qtd_total = req.body.qtd_total;
+    var valor_total = req.body.valor_total;
+    var id_usuario = req.body.id_usuario;
+
+     if (qtd_total == undefined) {
+        res.status(400).send("Sua Quantidade total está undefined!");
+    } else if (valor_total == undefined) {
+        res.status(400).send("Seu valor em Pix está undefined!")
+    } else if (id_usuario == undefined) {
+        res.status(400).send("Seu id_usuario está undefined!")
+    } else {
+        
+        usuarioModel.venda(qtd_total, valor_total, id_usuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado)
+
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar a venda! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function carrinho(req, res) {
+    var idVenda = req.body.idVenda;
     var valorAgua = req.body.valorAgua;
     var valorCarvao8kg = req.body.valorCarvao8kg;
     var valorCarvao4kg = req.body.valorCarvao4kg;
@@ -218,11 +252,11 @@ function venda(req, res) {
     var qtd_cv8kg = req.body.qtd_cv8kg;
     var qtd_cv4kg = req.body.qtd_cv4kg;
     var qtd_cv2kg = req.body.qtd_cv2kg;
-    var qtd_total = req.body.qtd_total;
-    var valor_total = req.body.valor_total;
     var id_usuario = req.body.id_usuario;
 
-    if (valorAgua == undefined) {
+    if (idVenda == undefined) {
+        res.status(400).send("Seu valorAgua está undefined!")
+    } else if (valorAgua == undefined) {
         res.status(400).send("Seu valorAgua está undefined!")
     } else if (valorCarvao8kg == undefined) {
         res.status(400).send("Seu valorCarvao8kg está undefined!")
@@ -238,35 +272,21 @@ function venda(req, res) {
         res.status(400).send("Sua span_qtd_carvao4Kg está undefined!");
     }else if (qtd_cv2kg == undefined) {
         res.status(400).send("Sua span_qtd_carvao2Kg está undefined!");
-    } else if (qtd_total == undefined) {
-        res.status(400).send("Sua Quantidade total está undefined!");
-    } else if (valor_total == undefined) {
-        res.status(400).send("Seu valor em Pix está undefined!")
     } else if (id_usuario == undefined) {
         res.status(400).send("Seu id_usuario está undefined!")
     } else {
         
-        usuarioModel.venda(valorAgua,valorCarvao8kg,valorCarvao4kg,valorCarvao2kg,qtd_ag,qtd_cv8kg,qtd_cv4kg,qtd_cv2kg,qtd_total, valor_total, id_usuario)
+        usuarioModel.carrinho(idVenda,valorAgua,valorCarvao8kg,valorCarvao4kg,valorCarvao2kg,qtd_ag,qtd_cv8kg,qtd_cv4kg,qtd_cv2kg,id_usuario)
             .then(
-                function (resposta) {
+                function (resultado) {
                     res.json(resultado)
 
-                    resposta.json().then(json => {
-                        console.log(json);
-                        console.log(JSON.stringify(json));
-        
-                        usuarioModel.carrinho(json[1].idVenda)
-                        .then(function (resultado) {
-                            res.json(resultado)
-                        })
-                        console.log("chegou aqui")
-                    });
                 }
             ).catch(
                 function (erro) {
                     console.log(erro);
                     console.log(
-                        "\nHouve um erro ao realizar a venda! Erro: ",
+                        "\nHouve um erro ao realizar o carrinho! Erro: ",
                         erro.sqlMessage
                     );
                     res.status(500).json(erro.sqlMessage);
@@ -277,6 +297,23 @@ function venda(req, res) {
 
 function receberProdutos(req, res) {
     usuarioModel.receberProdutos()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function receberCarrinho(req, res) {
+    usuarioModel.receberCarrinho()
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -303,6 +340,8 @@ module.exports = {
     venda,
     reajusteEstoque,
     receberProdutos,
+    carrinho,
+    receberCarrinho
     
   
 }

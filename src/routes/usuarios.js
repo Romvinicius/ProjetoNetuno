@@ -35,8 +35,16 @@ router.post("/venda", function (req, res) {
     usuarioController.venda(req, res);
 })
 
+router.post("/carrinho", function (req, res) {
+    usuarioController.carrinho(req, res);
+})
+
 router.get("/receberProdutos", function (req, res) {
     usuarioController.receberProdutos(req, res);
+});
+
+router.get("/receberCarrinho", function (req, res) {
+    usuarioController.receberCarrinho(req, res);
 });
 
 

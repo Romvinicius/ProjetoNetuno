@@ -7,6 +7,7 @@ var acabou_cv2kg;
 var maiorEstoque;
 
 function iniciarPagina() {
+  totalVenda()
   fetch("/usuarios/listar_Estoque", {
     method: "GET",
     headers: {
@@ -105,8 +106,7 @@ function enviar() {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      // crie um atributo que recebe o valor recuperado aqui
-      // Agora vá para o arquivo routes/usuario.js
+
       novaQtdAguaServer: agua_para_estoque,
       novaQtdCv8kgServer: cv8kg_para_estoque,
       novaQtdCv4kgServer: cv4kg_para_estoque,
@@ -217,6 +217,74 @@ function receberProdutos() {
     console.log(erro);
   })
 
+}
+
+var data = [];
+
+function totalVenda(){
+
+  fetch("/usuarios/receberCarrinho", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    },
+
+  }).then(function (resposta) {
+    console.log("ESTOU NO THEN DO recebercarrinho()!")
+
+    if (resposta.ok) {
+      console.log(resposta);
+
+      resposta.json().then(resposta => {
+        console.log(resposta);
+        console.log(JSON.stringify(resposta));
+
+        for (var i = 0; i < resposta.length; i++) {
+          var recebimento = resposta[i]
+          data.push(recebimento[i])
+        }
+      });
+
+    } else {
+
+      console.log("Houve um erro ao tentar realizar o receberProdutos!");
+
+      resposta.text().then(texto => {
+        console.error(texto);
+
+      });
+    }
+  }).catch(function (erro) {
+    console.log(erro);
+  })
+
+  const data2 = {
+    labels: [
+      'Red',
+      'Blue',
+      'Yellow'
+    ],
+    datasets: [{
+      label: 'My First Dataset',
+    
+      backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)',
+        'rgb(255, 205, 86)'
+      ],
+      hoverOffset: 4
+    }]
+  };
+
+  const config2 = {
+    type: 'pie',
+    data: data2,
+  };
+
+  const myChart2 = new Chart(
+    document.getElementById('myChart2'),
+    config2
+  );
 }
 
 

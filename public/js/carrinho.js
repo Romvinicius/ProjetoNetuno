@@ -155,7 +155,15 @@ function finalizar(){
 	
 			if (resposta.ok) {
 				console.log("chegou aqui")
-				cardErro.style.display = "block";
+
+				resposta.json().then(json => {
+					console.log(json);
+					console.log(JSON.stringify(json));
+
+					let idVenda = json[1][0].idVenda;
+
+					carrinho(idVenda)
+			});
 				setTimeout(() => {
 					window.location = "./produto.html";
 				}, "5000")
@@ -190,14 +198,52 @@ function finalizar(){
 			window.location = "./produto.html";
 		}, 1000);
 	
-	
-	
-		
-	
-		
-	
 	}
 
+}
+
+function carrinho(idVenda){
+	fetch("/usuarios/carrinho", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify({
+
+			idVenda: idVenda,
+			valorAgua: valorAgua,
+			valorCarvao8kg: valorCarvao8kg,
+			valorCarvao4kg: valorCarvao4kg,
+			valorCarvao2kg: valorCarvao2kg,
+			qtd_ag: qtd_ag,
+			qtd_cv8kg: qtd_cv8kg,
+			qtd_cv4kg: qtd_cv4kg,
+			qtd_cv2kg: qtd_cv2kg,
+			id_usuario: id_usuario
+
+		})
+	}).then(function (resposta) {
+	
+		console.log("resposta: ", resposta);
+
+		if (resposta.ok) {
+			console.log("deu certo o carrinho")
+
+			resultado.json().then(json => {
+				console.log(json);
+				console.log(JSON.stringify(json));
+		});
+			setTimeout(() => {
+				window.location = "./produto.html";
+			}, "5000")
+		} else {
+			cardErro.style.display = "block"
+			setInterval(sumirMensagem, 5000);
+			finalizarAguardar();
+			throw ("Houve um erro ao tentar realizar o cadastro!");
+			return false;
+		}
+	})
 }
 
 

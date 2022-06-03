@@ -3,10 +3,10 @@ var sql = require('mssql');
 
 var mySqlConfig = {
     host: "localhost",
-    user: "aluno",
+    user: "root",
     port:  3306,
     database: "ProjetoNetuno",
-    password: "sptech",
+    password: "Vinicius&gabi28",
     multipleStatements: true
 };
 
