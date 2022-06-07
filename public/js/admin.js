@@ -1,3 +1,5 @@
+window.onload = iniciarPagina(),receberProdutos(),maisVendidos()
+
 const labels = []
 
 var acabou_agua;
@@ -33,6 +35,7 @@ function iniciarPagina() {
       
           if(qtdEstoques[i] > maiorEstoque){
             maiorEstoque = qtdEstoques[i]
+            
           }
         } 
         
@@ -116,12 +119,13 @@ function enviar() {
 
     console.log("resposta: ", resposta);
     alert("Reajuste no Estoque Realizada com sucesso!")
-
+    
   })
 
   setTimeout(function () {
     window.location = "./admin.html";
   }, 1000);
+  
 }
 
 function receberProdutos() {
@@ -243,6 +247,7 @@ function totalVenda(){
         for (var i = 0; i < resposta.length; i++) {
           var recebimento = resposta[i].valor
           valorCarrinho.push(recebimento)
+          
         }
        renderizarGrafico()
       });
@@ -301,10 +306,7 @@ function renderizarGrafico(){
 var qtdProdutos = []
 var nomeProdutos = []
 
-
 var resposta1 = []
-
-
 
 function maisVendidos(){
 
@@ -324,13 +326,6 @@ function maisVendidos(){
         console.log(resposta);
         console.log(JSON.stringify(resposta));
         resposta1 = resposta
-
-        for (var i = 0; i < resposta.length; i++) {
-          var recebimento = resposta[i].resultado
-
-          qtdProdutos.push(recebimento)
-
-        }
        
         ranking()
         
