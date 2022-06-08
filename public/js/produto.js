@@ -56,21 +56,25 @@ function Estoque(){
                 if (qtdEstoqueAguaProduto <= 0) {
                     span_acabou_agua.style.display = "block";
                     maisQtdAgua.onclick = ""
+                    menosQtdAgua.onclick = ""
                   } 
                 
                 if (qtdEstoqueCv8kgProduto <= 0) {
                     span_acabou_cv8kg.style.display = "block";
                     maisQtdCv8kg.onclick = ""
+                    menosQtdCv8kg.onclick = ""
                   } 
                 
                 if (qtdEstoqueCv4kgProduto <= 0) {
                     span_acabou_cv4kg.style.display = "block";
                     maisQtdCv4kg.onclick = ""
+                    menosQtdCv4kg.onclick = ""
                   } 
                 
                 if (qtdEstoqueCv2kgProduto <= 0) {
                     span_acabou_cv2kg.style.display = "block"
                     maisQtdCv2kg.onclick = ""
+                    menosQtdCv2kg.onclick = ""
                   } 
 			});
 
@@ -115,7 +119,7 @@ function mais_qtd_agua() {
     
     if (esse >=  acabou_agua) {
         span_acabou_agua.style.display = "block";
-        span_acabou_agua.innerHTML = `Temos apenas ${ acabou_agua} produtos`
+        span_acabou_agua.innerHTML = `Temos apenas ${acabou_agua} produtos`
         
     }  else {
         span_acabou_agua.style.display = "none";
